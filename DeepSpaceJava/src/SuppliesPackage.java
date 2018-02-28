@@ -21,8 +21,8 @@ public class SuppliesPackage {
         shieldPower = shield;
     }
     
-    public SuppliesPackage(SuppliesPackage s){
-        SuppliesPackage copy= new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
+    public SuppliesPackage(gitSuppliesPackage s){
+        SuppliesPackage copy = new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
         return copy;  
     }
     
