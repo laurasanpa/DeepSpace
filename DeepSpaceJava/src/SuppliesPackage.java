@@ -22,7 +22,7 @@ public class SuppliesPackage {
     }
     
     public SuppliesPackage(SuppliesPackage s){
-        copy=new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
+        SuppliesPackage copy= new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
         return copy;  
     }
     
