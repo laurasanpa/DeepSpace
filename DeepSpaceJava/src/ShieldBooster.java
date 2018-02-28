@@ -9,7 +9,9 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-public class ShieldBooster {
+package DeepSpaceJava
+
+class ShieldBooster {
     
     // Definición de atributos
     private String name;

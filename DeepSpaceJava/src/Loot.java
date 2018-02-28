@@ -9,7 +9,9 @@
  * @author Samuel Medina
  * @authot Laura Sánchez
  */
-public class Loot {
+package DeepSpaceJava
+        
+class Loot {
  
 // Definición de atributos.
     

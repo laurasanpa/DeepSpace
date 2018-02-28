@@ -8,7 +8,9 @@
  *
  * @author laura
  */
-public class SuppliesPackage {
+package DeepSpaceJava
+
+class SuppliesPackage {
     
     private float ammoPower;
     private float fuelUnits;
