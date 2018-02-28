@@ -10,5 +10,5 @@
  * @author Laura Sánchez
  */
 public enum GameCharacter {
-    ENEMYSTARSHIP, SPACESTATION    
+    ENEMYSTARSHIP, SPACESTATION;
 }

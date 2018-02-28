@@ -9,7 +9,7 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-package DeepSpaceJava
+package DeepSpaceJava;
 
 class ShieldBooster {
     
@@ -27,37 +27,35 @@ class ShieldBooster {
     
     // Constructor de copias
     public ShieldBooster(ShieldBooster s){
-        ShieldBooster shield = new ShieldBooster(s.getName(), s.getBoost(), s.getUses());
-        return shield;
+        ShieldBooster shield = new ShieldBooster(s.name, s.boost, s.uses);
     }
     
     // Consultores
-    public getName(){
+    public String getName(){
         return name;
     }
     
-    public getBoost(){
+    public float getBoost(){
         return boost;
     }
     
-    public getUses(){
+    public int getUses(){
         return uses;
     }
     
     /* Useit: Decrementa uses si uses>0 y
     Devuelve el valor de boost, duelve 1.0 en otro caso*/
-    public useIt(){
+    public float useIt(){
         if(uses>0){
             uses--;
             return boost;
         }else
-            return 1.0;
+            return (float) 1.0;
     }
     
     
     }
-    */
+   
    
     
     
-}

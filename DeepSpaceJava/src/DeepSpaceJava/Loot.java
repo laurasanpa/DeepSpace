@@ -9,10 +9,10 @@
  * @author Samuel Medina
  * @authot Laura Sánchez
  */
-package DeepSpaceJava
+package DeepSpaceJava;
         
 class Loot {
- 
+
 // Definición de atributos.
     
     private int nSupplies;
@@ -33,23 +33,23 @@ class Loot {
     }
     
 // Consultores de atributo.
-    public getNSupplies(){
+    public int getNSupplies(){
         return nSupplies;
     }
     
-    public getNWeapons(){
+    public int getNWeapons(){
         return nWeapons;
     }
     
-    public getNShields(){
+    public int getNShields(){
         return nShields;
     }
     
-    public getNHangars(){
+    public int getNHangars(){
         return nHangars;
     }
     
-    public getNMedals(){
+    public int getNMedals(){
         return nMedals;
     }
 }

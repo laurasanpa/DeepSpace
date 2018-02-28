@@ -6,9 +6,10 @@
 
 /**
  *
- * @author laura
+ * @author Samuel Medina
+ * @author Laura Sánchez
  */
-package DeepSpaceJava
+package DeepSpaceJava;
 
 class SuppliesPackage {
     
@@ -23,22 +24,22 @@ class SuppliesPackage {
         shieldPower = shield;
     }
     
-    public SuppliesPackage(gitSuppliesPackage s){
-        SuppliesPackage copy = new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
-        return copy;  
+    public SuppliesPackage SuppliesPackage(SuppliesPackage s){
+        SuppliesPackage copy = new SuppliesPackage(s.ammoPower, s.fuelUnits, s.shieldPower);
+        return copy;
     }
     
 // Consultores
     
-    public getAmmoPower(){
+    public float getAmmoPower(){
         return ammoPower;
     }
     
-    public getFuelUnits(){
-        return FuelUnits;
+    public float getFuelUnits(){
+        return fuelUnits;
     }
     
-    public getShieldPower(){
+    public float getShieldPower(){
         return shieldPower;
     }
 }

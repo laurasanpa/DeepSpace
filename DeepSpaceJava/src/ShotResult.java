@@ -10,5 +10,5 @@
  * @author Laura Sánchez
  */
 public enum ShotResult {
-    DONOTRESIST, RESIST
+    DONOTRESIST, RESIST;
 }

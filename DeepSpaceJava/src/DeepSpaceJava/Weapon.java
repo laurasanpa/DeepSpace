@@ -10,32 +10,45 @@
  * @author Laura Sánchez
  */
 
-package DeepSpaceJava
+package DeepSpaceJava;
 
 class Weapon {
     
     private String name;
-    private Weapontype type;
+    private WeaponType type;
     private int uses;
     
-    public Weapon( String n, Weapontype t, int u){
+    public Weapon( String n, WeaponType t, int u){
         name = n;
         type = t;
         uses = u;
     }
     
     public Weapon(Weapon s){
-        Weapon copy = new Weapon(s.getName(), s.getType(), s.getUses());
-        return copy;
+        Weapon copy = new Weapon(s.name, s.type, s.uses);
     }
     
-    public getType(){
+    public WeaponType getType(){
         return type;
     }
     
-    public getUses(){
+    public int getUses(){
         return uses;
     }
+
+    public float power(){
+        return this.type.getPower();
+    }
+    
+    public float useIt(){
+             if(uses>0){
+            uses--;
+            return this.power();
+        }else
+            return (float) 1.0;
+    }
+    
+       
     
     
 }
