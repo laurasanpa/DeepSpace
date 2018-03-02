@@ -9,7 +9,7 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-
+package deepspace;
 
 class Dice {
     
@@ -27,7 +27,7 @@ class Dice {
         NWEAPONSPROB=(float) 0.33;
         FIRSTSHOTPROB=(float) 0.5;
         
-        // Falta inicializar el generator pero no se como hacerlo //
+        // Falta inicializar //
 }
 
 

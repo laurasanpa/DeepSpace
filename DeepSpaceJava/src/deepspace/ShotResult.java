@@ -9,6 +9,8 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-public enum GameCharacter {
-    ENEMYSTARSHIP, SPACESTATION;
+package deepspace;
+
+public enum ShotResult {
+    DONOTRESIST, RESIST;
 }

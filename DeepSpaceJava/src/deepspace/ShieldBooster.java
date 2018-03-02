@@ -10,6 +10,8 @@
  * @author Laura Sánchez
  */
 
+package deepspace;
+
 class ShieldBooster {
     
     // Definición de atributos

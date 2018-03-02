@@ -9,7 +9,7 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-
+package deepspace;
 
 class SuppliesPackage {
     

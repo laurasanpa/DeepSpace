@@ -9,6 +9,7 @@
  * @author Samuel Medina
  * @authot Laura Sánchez
  */
+package deepspace;
         
 class Loot {
 

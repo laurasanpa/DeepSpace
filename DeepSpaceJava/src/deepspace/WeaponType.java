@@ -9,6 +9,7 @@
  * @author Samuel Medina
  * @author Laura Sánchez 
  */
+package deepspace;
 
 public enum WeaponType {
     /* Podría necesitar arreglos, a la espera del correo de prácticas*/

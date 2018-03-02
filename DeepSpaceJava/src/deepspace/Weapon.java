@@ -9,6 +9,8 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
+package deepspace;
+
 class Weapon {
     
     private String name;
