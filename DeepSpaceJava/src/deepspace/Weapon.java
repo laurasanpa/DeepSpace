@@ -22,19 +22,34 @@ class Weapon {
         type = t;
         uses = u;
     }
-    
+     /**
+     * Constructor de copias: genera una nueva instancia de Weapon a partir 
+     * de una instancia ya creada dada como parámetro.
+     * @param s 
+     * @return copy 
+     */
     public Weapon(Weapon s){
         Weapon copy = new Weapon(s.name, s.type, s.uses);
     }
-    
+     /**
+     * getType: devuelve el valor de atributo de la instancia type
+     * @return type
+     */
     public WeaponType getType(){
         return type;
     }
     
+     /**
+     * getUses: devuelve el valor de atributo de la instancia uses
+     * @return uses
+     */
     public int getUses(){
         return uses;
     }
-
+     /**
+     * power(): 
+     * @return type
+     */
     public float power(){
         return this.type.getPower();
     }

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Samuel Medina
@@ -19,33 +13,54 @@ class ShieldBooster {
     private float boost;
     private int uses;
     
-    // Constructor 
+    /**
+     * Constructor
+     * @param n, nombre
+     * @param b, boost
+     * @param u, uses
+     */
     public ShieldBooster(String n,float b,int u){
         name = n;
         boost = b;
         uses = u;
     }
     
-    // Constructor de copias
+    /**
+     * Constructor de copias: genera una nueva instancia de la clase ShieldBooster a
+     * partir de una instancia ya existente dada como parámetro.
+     * @param s 
+     */
     public ShieldBooster(ShieldBooster s){
         ShieldBooster shield = new ShieldBooster(s.name, s.boost, s.uses);
     }
     
-    // Consultores
+    /**
+     * getName(): consultor del atributo de instancia name
+     * @return name(String)
+     */
     public String getName(){
         return name;
     }
-    
+    /**
+     * getBoost(): consultor del atributo de instancia boost
+     * @return boost(float)
+     */
     public float getBoost(){
         return boost;
     }
-    
+    /**
+     * getUses(): consultor del atributo de instancia uses
+     * @return uses(int)
+     */
     public int getUses(){
         return uses;
     }
     
-    /* Useit: Decrementa uses si uses>0 y
-    Devuelve el valor de boost, duelve 1.0 en otro caso*/
+    /**
+     * Useit: Decrementa uses si uses>0 y devuelve el valor de boost, 
+     * devuelve 1.0 en otro caso
+     * @return float
+     */
     public float useIt(){
         if(uses>0){
             uses--;
