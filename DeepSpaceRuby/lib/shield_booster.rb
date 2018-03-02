@@ -11,7 +11,7 @@ class ShieldBooster
   end
   
   def newCopy(s)
-    copy = new ShieldBooster(s.name, s.boost, s.uses)
+    copy =ShieldBooster.new(s.name, s.boost, s.uses)
     return copy
   end
   

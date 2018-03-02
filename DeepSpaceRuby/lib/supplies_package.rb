@@ -11,7 +11,7 @@ class SuppliesPackage
   end
   
   def newCopy(s)
-    copy=new SuppliesPackage(s.ammoPower, s.fuelUnits, s.shieldPower)
+    copy=SuppliesPackage.new(s.ammoPower, s.fuelUnits, s.shieldPower)
     return copy
   end
   

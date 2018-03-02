@@ -10,7 +10,7 @@ class Weapon
   end
   
   def newCopy(s)
-    copy=new Weapon(s.name, s.type, s.uses)
+    copy=Weapon.new(s.name, s.type, s.uses)
     return copy
   end
   
