@@ -15,15 +15,9 @@ class SuppliesPackage
     return copy
   end
   
-  def ammoPower
-    @ammoPower
-  end
+  attr_reader:ammoPower
   
-  def fuelUnits
-    @fuelUnits
-  end
+  attr_reader:fuelUnits
   
-  def shieldPower
-    @shieldPower
-  end
+  attr_reader:shieldPower
 end

@@ -9,7 +9,6 @@
  * @author Samuel Medina
  * @authot Laura Sánchez
  */
-package DeepSpaceJava;
         
 class Loot {
 

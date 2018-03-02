@@ -3,8 +3,8 @@
 # and open the template in the editor.
 
 module CombatResult
-    ENEMYWINS:=enemywins
-    NOCOMBAT:=nocombat
-    STATIONSCAPES:=stationscapes
-    STATIONWINS:=stationwins
+    ENEMYWINS =:enemywins
+    NOCOMBAT =:nocombat
+    STATIONSCAPES =:stationscapes
+    STATIONWINS =:stationwins
 end

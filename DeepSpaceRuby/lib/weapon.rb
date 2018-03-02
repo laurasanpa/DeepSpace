@@ -2,31 +2,34 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class ShieldBooster
-  def initialize(n,b,u)
-    @name = n
-    @boost = b
-    @uses = u
-    
+class Weapon
+  def initialize(n,t,u)
+    @name = n;
+    @type = t;
+    @uses = u;    
   end
   
   def newCopy(s)
-    copy = new ShieldBooster(s.name, s.boost, s.uses)
+    copy=new Weapon(s.name, s.type, s.uses)
     return copy
   end
   
   attr_reader:name
   
-  attr_reader:boost
+  attr_reader:type
   
-  attr_reader:uses
- 
+  def power
+    @type.power
+  end
+  
   def useIt
     if @uses > 0
       @uses=@uses-1
-      return @boost
+      return this.power
     else
       return 1.0
     end
   end
+  
 end
+/* No estoy muy segura de que esto funcione así, ni de que this.power se escriba así*/

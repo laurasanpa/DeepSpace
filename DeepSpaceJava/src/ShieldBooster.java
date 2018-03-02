@@ -9,7 +9,6 @@
  * @author Samuel Medina
  * @author Laura Sánchez
  */
-package DeepSpaceJava;
 
 class ShieldBooster {
     

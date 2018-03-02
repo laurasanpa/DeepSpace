@@ -11,24 +11,14 @@ class Loot
     @nMedals = medals
   end
   
-  def nSupplies
-    @nSupplies
-  end
+  attr_reader:nSupplies
   
-  def nWeapons
-    @nWeapons
-  end
+  attr_reader:nWeapons
   
-  def nShields
-    @nShields
-  end
+  attr_reader:nShields
   
-  def nHangars
-    @nHangars
-  end
-  
-  def nMedals
-    @nMedals
-  end
+  attr_reader:nHangars
+ 
+  attr_reader:nMedals
   
 end
