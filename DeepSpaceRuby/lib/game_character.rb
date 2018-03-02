@@ -2,7 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module GameCharacter
-    ENEMYSTARSHIP=:enemystarship
-    SPACESTATION=:spacestation
+module DeepSpace
+  module GameCharacter
+      ENEMYSTARSHIP=:enemystarship
+      SPACESTATION=:spacestation
+  end
 end

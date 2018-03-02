@@ -2,7 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module ShotResult
-  DONOTRESIST =:donotresist
-  RESIST =:resist
+module DeepSpace
+  module ShotResult
+    DONOTRESIST =:donotresist
+    RESIST =:resist
+  end
 end

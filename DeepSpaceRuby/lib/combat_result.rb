@@ -2,9 +2,12 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module CombatResult
+module DeepSpace
+  module CombatResult
     ENEMYWINS =:enemywins
     NOCOMBAT =:nocombat
     STATIONSCAPES =:stationscapes
     STATIONWINS =:stationwins
+  end
+
 end
