@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module DeepSpace
+module Deepspace
   class Loot
     def initialize(supplies, weapons, shields, hangars, medals)
       @nSupplies =  supplies

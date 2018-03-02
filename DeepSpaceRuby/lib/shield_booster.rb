@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module DeepSpace
+module Deepspace
   class ShieldBooster
     def initialize(n,b,u)
       @name = n
