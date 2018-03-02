@@ -85,10 +85,13 @@ class Dice {
       * @return ENEMYSTARSHIP en otro caso.
       */
      public GameCharacter firstShot(){
+         GameCharacter spacestation = GameCharacter.SPACESTATION;
+         GameCharacter enemystarship = GameCharacter.ENEMYSTARSHIP;
+         
          if(generator.nextDouble()<FIRSTSHOTPROB)
-             return SPACESTATION;
+             return spacestation;
          else
-             return ENEMYSTARSHIP;
+             return enemystarship;
      }
      
      /**
