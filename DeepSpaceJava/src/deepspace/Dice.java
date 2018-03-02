@@ -78,5 +78,34 @@ class Dice {
          return generator.nextInt(nPlayers);
      }
      
+     /**
+      * GameCharacter firstShot:determina quién (de los dos tipos de personajes del
+      * juego) dispara primero en un combate: la estación espacial o la nave enemiga.
+      * @return SPACESTATION con una probabilidad de FIRSTSHOTPROB 
+      * @return ENEMYSTARSHIP en otro caso.
+      */
+     public GameCharacter firstShot(){
+         if(generator.nextDouble()<FIRSTSHOTPROB)
+             return SPACESTATION;
+         else
+             return ENEMYSTARSHIP;
+     }
+     
+     /**
+      * boolean spaceStationMoves(float speed): determina si la estación
+      * espacial se moverá para esquivar un disparo. La probabilidad de moverse será mayor cuanto más
+      * cerca está la velocidad potencial actual de la estación espacial de su velocidad máxima potencial.
+      * Precondicion:se asume que speed será un número entre 0 y 1.
+      * @return true con una probabilidad de speed 
+      * @return false en otro caso
+      * @param speed 
+      */
+     boolean spaceStationMoves(float speed){
+         if(generator.nextFloat()<speed)
+             return true;
+         else
+             return false;
+     }
+     
      
 }
