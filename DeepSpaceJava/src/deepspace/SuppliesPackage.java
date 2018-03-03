@@ -21,11 +21,11 @@ class SuppliesPackage {
      * Constructor de copias: genera una nueva instancia de SuppliesPackage a partir 
      * de una instancia ya creada dada como parámetro.
      * @param s (SuppliesPackage)
-     * @return copy (Nueva instancia)
      */
     public SuppliesPackage(SuppliesPackage s){
-        SuppliesPackage copy = new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
-   
+        ammoPower=s.ammoPower;
+        fuelUnits=s.fuelUnits;
+        shieldPower=s.shieldPower;
     }
     
     

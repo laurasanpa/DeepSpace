@@ -29,7 +29,9 @@ class Weapon {
      * @return copy 
      */
     public Weapon(Weapon s){
-        Weapon copy = new Weapon(s.name, s.type, s.uses);
+        name=s.name;
+        type=s.type;
+        uses=s.uses;
     }
      /**
      * getType: devuelve el valor de atributo de la instancia type

@@ -31,7 +31,9 @@ class ShieldBooster {
      * @param s 
      */
     public ShieldBooster(ShieldBooster s){
-        ShieldBooster shield = new ShieldBooster(s.name, s.boost, s.uses);
+        name=s.name;
+        boost=s.boost;
+        uses=s.uses;
     }
     
     /**
