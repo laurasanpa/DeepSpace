@@ -5,8 +5,6 @@
  */
 package deepspace;
 
-import static deepspace.WeaponType.LASER;
-
 /**
  *
  * @author samuel
@@ -19,30 +17,37 @@ public class TestP1 {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Esto es una prueba");
+        System.out.print("\n");
         
         //Botín
         Loot Lote = new Loot(1,2,3,4,5);
         
         System.out.print("El botín tiene las siguientes medallas:" + Lote.getNMedals());
+        System.out.print("\n");
         System.out.print("El botín tiene las siguientes armas:" + Lote.getNWeapons());
+        System.out.print("\n");
         System.out.print("El botín tiene los siguientes escudos:" + Lote.getNShields());
+        System.out.print("\n");
         
         //Paquete de suministros
         
-        SuppliesPackage paq = new SuppliesPackage(2,8,5);
-        SuppliesPackage paq2=new SuppliesPackage(paq);
+        SuppliesPackage paq = new SuppliesPackage(2,1,1);
+        SuppliesPackage paq2 = new SuppliesPackage(paq);
         
-        System.out.print("El paquete de suministros tiene la siguiente cantidad de combustible:" + paq2.getFuelUnits());
-        System.out.print("El paquete de suministros tiene la siguiente recarga de escudos:" + paq2.getShieldPower());
-    
+        System.out.print("El paquete de suministros tiene la siguiente cantidad de combustible:" + paq.getFuelUnits());
+        System.out.print("\n");
+        System.out.print("El paquete de suministros tiene la siguiente recarga de escudos:" + paq.getShieldPower());
+        System.out.print("\n");
         
         //ShieldBooster
         String nombre = "Pepe";
         ShieldBooster recarga = new ShieldBooster(nombre,2,2);
         ShieldBooster recarga2 = new ShieldBooster(recarga);
         
-        System.out.print("Usos del potenciador de escudos:" + recarga2.getUses());
-        System.out.print("useIt:" + recarga2.useIt());
+        System.out.print("Usos del potenciador de escudos:" + recarga.getUses());
+        System.out.print("\n");
+        System.out.print("useIt:" + recarga.useIt());
+        System.out.print("\n");
         
         //Weapon
         String nombre1="lolita";
@@ -50,15 +55,26 @@ public class TestP1 {
         Weapon arma1 = new Weapon(nombre1,lolita,3);
         Weapon hermana = new Weapon(arma1);
         
-        System.out.print("Tipo de arma:" + hermana.getType());
-        System.out.print("Potencia de arma" + hermana.power());
+        System.out.print("Tipo de arma:" + arma1.getType());
+        System.out.print("\n");
+        System.out.print("Potencia de arma" + arma1.power());
+        System.out.print("\n");
         
         //Dice
         Dice dado= new Dice();
+        float num=(float) 0.5;
         
         System.out.print("Número de hangares al inicio de la partida:" + dado.initWithNHangars());
-        System.out.print("Número de escudos al inicio de la partida:" + dado.initWithShields());
-        System.out.print("Número de armas al inicio de la partida:" + dado.init());
+        System.out.print("\n");
+        System.out.print("Número de escudos al inicio de la partida:" + dado.initWithNShields());
+        System.out.print("\n");
+        System.out.print("Número de armas al inicio de la partida:" + dado.initWithNWeapons());
+        System.out.print("\n");
+        System.out.print("La primera jugada es para:" + dado.whoStarts(2));
+        System.out.print("\n");
+        System.out.print("Huimos?:" + dado.spaceStationMoves(num));
+        System.out.print("\n");
+        
     }
     
 }

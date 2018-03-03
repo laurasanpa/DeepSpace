@@ -45,7 +45,7 @@ class Dice {
      * @return devuelve 1 con una probabilidad de NWEAPONSPROB, 2 con la misma
      * probabilidad y 3 con una probabilidad de (1-2* NWEAPONSPROB)
      */
-    public int initWithWeapons(){
+    public int initWithNWeapons(){
        double prob= generator.nextDouble();
        if(prob<NWEAPONSPROB)
            return 1;
@@ -60,7 +60,7 @@ class Dice {
      * ser creada.
      * @return devuelve 0 con una probabilidad de NSHIELDSPROB y 1 en caso contrario.
      */
-    public int initWithShields(){
+    public int initWithNShields(){
         if( generator.nextDouble()< NSHIELDSPROB)
             return 0;
         else

@@ -23,10 +23,11 @@ class SuppliesPackage {
      * @param s (SuppliesPackage)
      * @return copy (Nueva instancia)
      */
-    public SuppliesPackage SuppliesPackage(SuppliesPackage s){
-        SuppliesPackage copy = new SuppliesPackage(s.ammoPower, s.fuelUnits, s.shieldPower);
-        return copy;
+    public SuppliesPackage(SuppliesPackage s){
+        SuppliesPackage copy = new SuppliesPackage(s.getAmmoPower(), s.getFuelUnits(), s.getShieldPower());
+   
     }
+    
     
     /**
      * getAmmoPower: devuelve el valor de atributo de la instancia ammoPower
