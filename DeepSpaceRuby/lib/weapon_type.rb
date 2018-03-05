@@ -7,6 +7,7 @@ module DeepSpace
 
 
     class Type
+      attr_accesor:power
       def initialize(p)
         @power=p
       end
