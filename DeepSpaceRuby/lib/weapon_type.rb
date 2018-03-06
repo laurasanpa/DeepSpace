@@ -2,12 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module DeepSpace
   module WeaponType
-
-
     class Type
-      attr_accesor:power
+      
       def initialize(p)
         @power=p
       end
@@ -17,10 +14,8 @@ module DeepSpace
       end
 
     end
-
-
+    
       LASER=Type.new(2.0)
       MISSILE=Type.new(3.0)
       PLASMA=Type.new(4.0)
   end
-end

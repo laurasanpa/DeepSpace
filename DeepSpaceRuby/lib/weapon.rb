@@ -3,6 +3,7 @@
 # and open the template in the editor.
 
 module Deepspace
+  require_relative 'weapon_type'
   class Weapon
     def initialize(n,t,u)
       @name = n;
@@ -10,7 +11,7 @@ module Deepspace
       @uses = u;    
     end
 
-    def newCopy(s)
+    def self.newCopy(s)
       copy=Weapon.new(s.name, s.type, s.uses)
       return copy
     end
