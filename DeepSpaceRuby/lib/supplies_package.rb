@@ -10,7 +10,7 @@ module Deepspace
 
     end
 
-    def newCopy(s)
+    def self.newCopy(s)
       copy=SuppliesPackage.new(s.ammoPower, s.fuelUnits, s.shieldPower)
       return copy
     end

@@ -11,7 +11,7 @@ module Deepspace
 
     end
 
-    def newCopy(s)
+    def self.newCopy(s)
       copy =ShieldBooster.new(s.name, s.boost, s.uses)
       return copy
     end
