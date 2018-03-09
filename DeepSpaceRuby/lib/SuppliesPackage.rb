@@ -3,6 +3,14 @@
 # and open the template in the editor.
 module Deepspace
   class SuppliesPackage
+    
+    attr_reader:ammoPower
+
+    attr_reader:fuelUnits
+
+    attr_reader:shieldPower
+    
+    
     def initialize(power, fuel, shield)
       @ammoPower = power
       @fuelUnits = fuel
@@ -11,14 +19,16 @@ module Deepspace
     end
 
     def self.newCopy(s)
-      copy=SuppliesPackage.new(s.ammoPower, s.fuelUnits, s.shieldPower)
-      return copy
+      new(s.ammoPower, s.fuelUnits, s.shieldPower)
     end
-
-    attr_reader:ammoPower
-
-    attr_reader:fuelUnits
-
-    attr_reader:shieldPower
+    
+    def to_s
+   
+       "AmmoPower:#{@ammoPower}"
+       "FuelUnits:#{@fuelUnits}"
+       "ShieldPower:#{@shieldPower}"
+    end
+    
   end
+  
 end

@@ -12,6 +12,10 @@
       def power
         @power
       end
+      
+      def to_s
+        "Power:#{@power}"
+      end
 
     end
     

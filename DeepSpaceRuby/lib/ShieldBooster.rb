@@ -3,35 +3,37 @@
 # and open the template in the editor.
 
 module Deepspace
-  require_relative 'weapon_type'
-  class Weapon
-    def initialize(n,t,u)
-      @name = n;
-      @type = t;
-      @uses = u;    
+  class ShieldBooster
+    def initialize(n,b,u)
+      @name = n
+      @boost = b
+      @uses = u
+
     end
 
     def self.newCopy(s)
-      copy=Weapon.new(s.name, s.type, s.uses)
-      return copy
+      new(s.name, s.boost, s.uses)
     end
 
     attr_reader:name
 
-    attr_reader:type
+    attr_reader:boost
 
-    def power
-      @type.power
-    end
+    attr_reader:uses
 
     def useIt
       if @uses > 0
         @uses=@uses-1
-        return power
+        return @boost
       else
         return 1.0
       end
     end
-  
+    
+    def to_s
+      "Name:#{@name}"
+      "Boost:#{@boost}"
+      "Uses:#{@uses}"
+    end
   end
 end
