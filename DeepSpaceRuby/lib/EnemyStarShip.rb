@@ -6,6 +6,11 @@ module Deepspace
   require_relative 'Damage'
   
   class EnemyStarShip
+    attr_reader:ammoPower
+    attr_reader:name
+    attr_reader:shieldPower
+    attr_reader:loot
+    attr_reader:damage
     
     def initialize(n,a,s,l,d)
        @ammoPower=a
@@ -16,31 +21,11 @@ module Deepspace
     end
     
     def self.newCopy(e)
-      new(e.getName, e.getAmmoPower, e.getShieldPower, e.getLoot, e.getDamage)
+      new(e.name, e.ammoPower, e.shieldPower, e.loot, e.damage)
     end
     
     def getUIversion
       EnemyStarShipToUI.new(self)
-    end
-    
-    def getName
-      @name
-    end
-    
-    def getAmmoPower
-      @ammoPower
-    end
-    
-    def getShieldPower
-      @shieldPower
-    end
-    
-    def getLoot
-      @loot
-    end
-    
-    def getDamage
-      @damage
     end
     
     def protection

@@ -7,6 +7,10 @@ module Deepspace
   
   class Damage
     
+    attr_reader:nWeapons
+    attr_reader:nShields
+    attr_reader:weapons
+    
     def initialize(w,s,wl)
       @nWeapons=w
       @nShields=s
@@ -22,7 +26,7 @@ module Deepspace
     end
     
     def self.newCopy(d)
-      new(d.getNWeapons, d.getNShields, d.getWeapons)
+      new(d.nWeapons, d.nShields, d.weapons)
     end
     
     def getUIversion
@@ -39,18 +43,6 @@ module Deepspace
     
     def hasNoEffect
       throw new UnsupportedOperationException
-    end
-    
-    def getNShields
-      @nShields
-    end
-    
-    def getNWeapons
-      @nWeapons
-    end
-    
-    def getWeapons
-      @weapons
     end
     
     private

@@ -12,6 +12,16 @@ module Deepspace
     @@MAXFUEL=100
     @@SHIELDLOSSPERUNITSHOT=0.1
     
+    attr_reader:ammoPower
+    attr_reader:fuelUnits
+    attr_reader:name
+    attr_reader:shieldPower
+    attr_reader:weapons
+    attr_reader:nMedals
+    attr_reader:shieldBoosters
+    attr_reader:hangar
+    attr_accesor:pendingDamage
+    
     def initialize(a,f,n,m,sp,w,sb,h,pd)
       @ammoPower=a
       @fuelUnits=f
@@ -23,9 +33,100 @@ module Deepspace
       @hangar=h
       @pendingDamage=pd
     end
+    #Nombre inventado. Posiblemente haya que cambiarlo en algún momento.
+    def self.newSuppliesPackage(n, supplies)
+      new(supplies.ammoPower,supplies.fuelUnits ,n,supplies.shieldPower,nil, nil, -1,-1)
+    end
     
-    def self.new
+    def cleanUpMountedItems
+      throw new UnsupportedOperationException
+    end
     
-    def 
+    def discardHangar
+      throw new UnsupportedOperationException
+    end
+    
+    def mountShieldBooster(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def discardShieldBooster(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def discardShieldBoosterInHangar(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def mountWeapon(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def discardWeapon(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def discardWeaponInHangar(i)
+      throw new UnsupportedOperationException
+    end
+    
+    def getUIversion
+      SpaceStationToUI.new(self)
+    end
+    
+    def fire
+      throw new UnsupportedOperationException
+    end
+    
+    def speed
+      throw new UnsupportedOperationException
+    end
+    
+    def move
+      throw new UnsupportedOperationException
+    end
+    
+    def protection
+      throw new UnsupportedOperationException
+    end
+    
+    def receiveHangar(h)
+      throw new UnsupportedOperationException
+    end
+    
+    def receiveShieldBooster(s)
+      throw new UnsupportedOperationException
+    end
+    
+    def receiveShot(shot)
+      throw new UnsupportedOperationException
+    end
+    
+    def receiveSupplies(s)
+      throw new UnsupportedOperationException
+    end
+    
+    def receiveWeapon(w)
+      throw new UnsupportedOperationException
+    end
+    
+    def loot(loot)
+      throw new UnsupportedOperationException
+    end
+    
+    def validState
+      throw new UnsupportedOperationException
+    end
+    
+    private
+    
+    def assignFuelValue(f)
+      throw new UnsupportedOperationException
+    end
+
+    def cleanPendingDamage
+      throw new UnsupportedOperationException
+    end
+    
   end
 end

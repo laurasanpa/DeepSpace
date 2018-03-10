@@ -9,6 +9,8 @@ module Deepspace
   class Hangar
     
     attr_reader:maxElements
+    attr_reader:shieldBoosters
+    attr_reader:weapons
     
    def initialize(n,b,w)
     @maxElements=n
@@ -17,7 +19,7 @@ module Deepspace
    end
       
    def self.newCopy(h)
-     new(h.maxElements, h.getShieldBoosters, h.getWeapons)
+     new(h.maxElements, h.shieldBoosters, h.weapons)
    end
    
    def getUIversion
@@ -33,14 +35,6 @@ module Deepspace
    #param ShieldBooster
    # @return bool
    def addShieldBooster(s)
-     throw new UnsupportedOperationException
-   end
-   
-   def getShieldBoosters
-     throw new UnsupportedOperationException
-   end
-   
-   def getWeapons
      throw new UnsupportedOperationException
    end
    
