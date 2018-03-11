@@ -71,5 +71,13 @@ module Deepspace
     def nextTurn
       throw new UnsupportedOperationException
     end
+    
+    def to_s
+      "CurrentEnemy:#{@currentEnemy}"
+      "CurrentStations:#{@currentStation}"
+      "GameState:#{@gameState}"
+      "Dice:#{@dice}"
+      "SpaceStations:#{@spaceStations}"
+    end
   end
 end

@@ -46,6 +46,12 @@ module Deepspace
      throw new UnsupportedOperationException
    end
    
+   def to_s
+      "Elementos max.:#{@maxElements}"
+      "ShieldBoosters:#{@shieldBoosters}"
+      "Weapons:#{@weapons}"
+   end
+   
    private
    
    def spaceAvailable

@@ -35,5 +35,13 @@ module Deepspace
     def receiveShot(shot)
       throw new UnsupportedOperationException
     end
+    
+    def to_s
+      "Name:#{@name}"
+      "AmmoPower:#{@ammoPower}"
+      "ShieldPower:#{@shieldPower}"
+      "Loot:#{@loot}"
+      "Damage:#{@damage}"
+    end
   end
 end

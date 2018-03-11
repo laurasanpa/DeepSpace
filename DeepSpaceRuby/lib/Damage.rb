@@ -45,6 +45,12 @@ module Deepspace
       throw new UnsupportedOperationException
     end
     
+    def to_s
+      "NWeapons:#{@nWeapons}"
+      "NShields:#{@nShields}"
+      "Weapons:#{@weapons}"
+    end
+    
     private
     
     def adjust(w,s)

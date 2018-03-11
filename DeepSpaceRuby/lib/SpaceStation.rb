@@ -118,6 +118,18 @@ module Deepspace
       throw new UnsupportedOperationException
     end
     
+    def to_s
+      "Name:#{@name}"
+      "AmmoPower:#{@ammoPower}"
+      "FuelUnits:#{@fuelUnits}"
+      "ShieldPower:#{@shieldPower}"
+      "Weapons:#{@weapons}"
+      "Medals:#{@nMedals}"
+      "ShieldBoosters:#{@shieldBoosters}"
+      "Hangar:#{@hangar}"
+      "PendingDamage:#{@pendingDamage}"
+    end
+    
     private
     
     def assignFuelValue(f)
