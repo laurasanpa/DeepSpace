@@ -64,6 +64,15 @@ class Weapon {
             return (float) 1.0;
     }
     
+    @Override
+    public String toString(){
+        return "Name:" + name + ",," + "Type:" + type + ",," + "Uses:" + uses;       
+    }
+    
+    WeaponToUI getUIversion(){
+        return new WeaponToUI(this);
+    }
+    
        
     
     
