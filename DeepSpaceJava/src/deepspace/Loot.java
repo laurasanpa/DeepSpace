@@ -4,7 +4,7 @@
  * @authot Laura Sánchez
  */
 package deepspace;
-        
+
 class Loot {
 
 // Definición de atributos.
@@ -16,11 +16,11 @@ class Loot {
     private int nMedals;
 /**
  * Constructor
- * @param supplies
- * @param weapons
- * @param shields
- * @param hangars
- * @param medals 
+ * @param nSupplies
+ * @param nWeapons
+ * @param nShields
+ * @param nHangars
+ * @param nMedals 
  */ 
     public Loot(int supplies , int weapons , int shields , int hangars , int medals){
         
@@ -69,4 +69,14 @@ class Loot {
     public int getNMedals(){
         return nMedals;
     }
+    
+    public String to_String(){
+     return "nSupplies:"+ nSupplies +",,"+ "nWeapons:" + nWeapons + ",," + "nShields:" + 
+             nWeapons + ",," + "nHangars:" + nHangars + ",," + "nMedals:" + nMedals;
+    }
+    
+    LootToUI getUIversion(){
+        return new LootToUI(this);
+    } 
+    
 }
