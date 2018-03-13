@@ -29,21 +29,31 @@ module Deepspace
    # @param weapon
    # @return bool
    def addWeapon(w)
-     throw new UnsupportedOperationException
+     if spaceAvailable 
+       @weapons.add(w)
+       return true
+     else 
+       return false
+     end
    end
    
    #param ShieldBooster
    # @return bool
    def addShieldBooster(s)
-     throw new UnsupportedOperationException
+      if spaceAvailable 
+       @shieldBooster.add(w)
+       return true
+     else 
+       return false
+     end
    end
    
    def removeShieldBooster(n)
-     throw new UnsupportedOperationException
+     @shielBooster.delete_at(n)
    end
    
    def removeWeapon(n)
-     throw new UnsupportedOperationException
+     @weapons.delete_at(n)
    end
    
    def to_s
@@ -55,7 +65,7 @@ module Deepspace
    private
    
    def spaceAvailable
-     throw new UnsupportedOperationException
+      @weapons.length+@shieldBoosters.length <= @maxElements
    end
    
 end
