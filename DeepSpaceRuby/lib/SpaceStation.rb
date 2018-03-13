@@ -16,11 +16,11 @@ module Deepspace
     attr_reader:fuelUnits
     attr_reader:name
     attr_reader:shieldPower
-    attr_reader:weapons
+    attr_reader:weapons #array
     attr_reader:nMedals
     attr_reader:shieldBoosters
     attr_reader:hangar
-    attr_accesor:pendingDamage
+    attr_reader:pendingDamage
     
     def initialize(a,f,n,m,sp,w,sb,h,pd)
       @ammoPower=a
@@ -43,11 +43,16 @@ module Deepspace
     end
     
     def discardHangar
-      throw new UnsupportedOperationException
+      @hangar=nil
     end
     
     def mountShieldBooster(i)
-      throw new UnsupportedOperationException
+       unless @hangar==nil
+        h=@hangar.removeShieldBooster(i)
+        unless h == nil
+          weapons.add(h)
+        end
+      end
     end
     
     def discardShieldBooster(i)
@@ -55,11 +60,18 @@ module Deepspace
     end
     
     def discardShieldBoosterInHangar(i)
-      throw new UnsupportedOperationException
+      unless @hangar==nil
+        @hangar.removeShieldBooster(i)
+      end
     end
     
     def mountWeapon(i)
-      throw new UnsupportedOperationException
+      unless @hangar==nil
+        h=@hangar.removeWeapon(i)
+        unless h == nil
+          weapons.add(h)
+        end
+      end
     end
     
     def discardWeapon(i)
@@ -67,7 +79,9 @@ module Deepspace
     end
     
     def discardWeaponInHangar(i)
-      throw new UnsupportedOperationException
+      unless @hangar==nil
+        @hangar.removeWeapon(i)
+      end
     end
     
     def getUIversion
@@ -78,12 +92,12 @@ module Deepspace
       throw new UnsupportedOperationException
     end
     
-    def speed
-      throw new UnsupportedOperationException
+    def getSpeed
+      @fuelUnits/@@MAXFUEL
     end
     
     def move
-      throw new UnsupportedOperationException
+      @fuelUnits-getSpeed
     end
     
     def protection
@@ -91,11 +105,17 @@ module Deepspace
     end
     
     def receiveHangar(h)
-      throw new UnsupportedOperationException
+      if @hangar==nil
+        @hangar=h
+      end
     end
     
     def receiveShieldBooster(s)
-      throw new UnsupportedOperationException
+       unless @hangar==nil
+        return @hangar.addShieldBooster(s)
+       else 
+        return false
+       end
     end
     
     def receiveShot(shot)
@@ -103,11 +123,17 @@ module Deepspace
     end
     
     def receiveSupplies(s)
-      throw new UnsupportedOperationException
+      @ammoPower+=s.ammoPower
+      @fuelUnits+=s.fuelUnits
+      @shieldPower+=s.shieldPower
     end
     
     def receiveWeapon(w)
-      throw new UnsupportedOperationException
+      unless @hangar==nil
+        return @hangar.addWeapon(w)
+      else 
+        return false
+      end
     end
     
     def loot(loot)
@@ -115,7 +141,11 @@ module Deepspace
     end
     
     def validState
-      throw new UnsupportedOperationException
+      @pendingDamage==nil 
+    end
+    
+    def setpendingDamage(d)
+      @pendingDamage=d
     end
     
     def to_s
@@ -130,14 +160,19 @@ module Deepspace
       "PendingDamage:#{@pendingDamage}"
     end
     
+   
+    
     private
     
     def assignFuelValue(f)
-      throw new UnsupportedOperationException
+      if f<=@@MAXFUEL
+        @fuelUnits = f
+      end
     end
 
     def cleanPendingDamage
-      throw new UnsupportedOperationException
+      #Comprobar que no tenga efecto
+      @pendingDamage=nil
     end
     
   end
