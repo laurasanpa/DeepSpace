@@ -34,15 +34,26 @@ module Deepspace
     end
     
     def discardWeapon(w)
-     throw new UnsupportedOperationException
+        if @nWeapons == -1
+          @weapons.delete_all(w)
+        else if @nWeapons>0
+          @nWeapons = @nWeapons-1  
+        end
+       end
     end
     
     def discardShieldBooster
-      throw new UnsupportedOperationException
+      if @nShields >0
+        @nShields=@nShields-1
+      end
     end
     
     def hasNoEffect
-      throw new UnsupportedOperationException
+      if @nWeapons=-1
+        return @nShields=0 && @Weapons==nill
+      else
+        return @nWeapons=0 && @nShields=0
+      end
     end
     
     def to_s
@@ -54,12 +65,21 @@ module Deepspace
     private
     
     def adjust(w,s)
-      throw new UnsupportedOperationException
+      w=w+s
+      w=w&@weapons
+      s=s&@weapons
+      
+      adjusteddamage = Damage.newSpecificWeapons(w,s.length)
     end
     
     def arrayContainsType(w,t)
-      throw new UnsupportedOperationException
+      if w.find_index(t)== nill
+        return -1
+      else 
+        return w.find_index(t)
+      end
     end
-    
+        
+   
   end
 end
