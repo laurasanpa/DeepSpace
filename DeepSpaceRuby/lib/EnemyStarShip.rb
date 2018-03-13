@@ -29,11 +29,19 @@ module Deepspace
     end
     
     def protection
-      throw new UnsupportedOperationException
+      @shieldPower
+    end
+    
+    def fire
+      @ammoPower
     end
     
     def receiveShot(shot)
-      throw new UnsupportedOperationException
+      if shot >= @shieldPower
+        return ShotResult::DONOTRESIST
+      else
+        return ShotResult::RESIST
+      end
     end
     
     def to_s
