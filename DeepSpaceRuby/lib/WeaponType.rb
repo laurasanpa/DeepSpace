@@ -5,8 +5,9 @@
   module WeaponType
     class Type
       
-      def initialize(p)
+      def initialize(p,n)
         @power=p
+        @name=n
       end
 
       def power
@@ -15,11 +16,12 @@
       
       def to_s
         "Power:#{@power}"
+        "Name:#{@name}"
       end
 
     end
     
-      LASER=Type.new(2.0)
-      MISSILE=Type.new(3.0)
-      PLASMA=Type.new(4.0)
+      LASER=Type.new(2.0, "LASER")
+      MISSILE=Type.new(3.0, "MISSILE")
+      PLASMA=Type.new(4.0, "PLASMA")
   end
