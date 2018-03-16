@@ -69,9 +69,11 @@ class Weapon {
         return "Name:" + name + ",," + "Type:" + type + ",," + "Uses:" + uses;       
     }
     
-    WeaponToUI getUIversion(){
+    public WeaponToUI getUIversion(){
         return new WeaponToUI(this);
     }
+    
+    
     
        
     
