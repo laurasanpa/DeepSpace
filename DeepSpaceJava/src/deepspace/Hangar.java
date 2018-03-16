@@ -64,9 +64,17 @@ public class Hangar {
     public ArrayList<Weapon> getWeapons(){
         return weapons;
     } 
+    public Weapon removeWeapon(int w){
+        return weapons.remove(w);
+    }   
     
     public ShieldBooster removeShieldBooster(int s){
         return shieldBoosters.remove(s);
+    }
+
+    @Override
+    public String toString() {
+        return "Hangar{" + "maxElements=" + maxElements + ", shieldBoosters=" + shieldBoosters + ", weapons=" + weapons + '}';
     }
     
     
