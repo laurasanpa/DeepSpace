@@ -175,5 +175,7 @@ module Deepspace
       @pendingDamage=nil
     end
     
+    private_class_method :new
+    
   end
 end

@@ -6,7 +6,7 @@ module Deepspace
   require_relative 'ShieldBooster'
   require_relative 'Weapon'
   
-  class Hangar
+  class Hangar implements Copyable<Hangar>
     
     attr_reader:maxElements
     attr_reader:shieldBoosters
@@ -67,6 +67,8 @@ module Deepspace
    def spaceAvailable
       @weapons.length+@shieldBoosters.length <= @maxElements
    end
+   
+   private_class_method :new
    
 end
 

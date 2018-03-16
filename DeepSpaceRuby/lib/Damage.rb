@@ -62,8 +62,6 @@ module Deepspace
       "Weapons:#{@weapons}"
     end
     
-    private
-    
     def adjust(w,s)
       w=w+s
       w=w&@weapons
@@ -72,6 +70,8 @@ module Deepspace
       adjusteddamage = Damage.newSpecificWeapons(w,s.length)
     end
     
+    private
+    
     def arrayContainsType(w,t)
       if w.find_index(t)== nill
         return -1
@@ -79,7 +79,9 @@ module Deepspace
         return w.find_index(t)
       end
     end
-        
+    
+    private_class_method :new
+    
    
   end
 end

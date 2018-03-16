@@ -3,7 +3,7 @@
 # and open the template in the editor.
 
 module Deepspace
-  class ShieldBooster
+  class ShieldBooster implements Copyable<ShieldBooster>
     def initialize(n,b,u)
       @name = n
       @boost = b

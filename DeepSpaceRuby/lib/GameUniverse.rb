@@ -10,50 +10,69 @@ module Deepspace
   
   class GameUniverse
     
+    @@WIN=10
+    
     attr_reader:gameState
     
-    def initialize(e,s,g,d,st)
-        @currentEnemy=e
+    def initialize(e,s,st,si)
+        @currentEnemy
         @currentStation=s
-        @gameState=g
-        @dice =d
+        @gameState=GameStateController.new
+        @dice=Dice.new
         @spaceStations=st #array
-    end
-    
-    def self.newNil
-      new(-1,-1,-1,-1,nil)
+        @currentStationIndex
+        @turns=0
+        
     end
     
     def combat
       throw new UnsupportedOperationException
     end
     
-    def discardHangar
+    def combatGO(station,enemy)
       throw new UnsupportedOperationException
+    end
+    
+    def discardHangar
+        if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.discardHangar
+      end
     end
     
     def mountShieldBooster(i)
-      throw new UnsupportedOperationException
+        if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.mountShieldBooster(i)
+      end
     end
     
     def discardShieldBooster(i)
-      throw new UnsupportedOperationException
+       if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.discardShieldBooster(i)
+      end
     end
     
     def discardShieldBoosterInHangar(i)
-      throw new UnsupportedOperationException
+        if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.discardShieldBoosterInHangar(i)
+      end
     end
     
     def mountWeapon(i)
-      throw new UnsupportedOperationException
+        if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.mountWeapon(i)
+      end
     end
     
     def discardWeapon(i)
-      throw new UnsupportedOperationException
+        if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.discardWeapon(i)
+      end
     end
     
     def discardWeaponInHangar(i)
-      throw new UnsupportedOperationException
+      if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
+        @currentStation.discardWeaponInHangar(i)
+      end
     end
     
     def getUIversion
@@ -61,7 +80,11 @@ module Deepspace
     end
     
     def haveAWinner
-      throw new UnsupportedOperationException
+      if @currentStation.nMedals==10
+        return true
+      else
+        return false
+      end
     end
     
     def init(names)
