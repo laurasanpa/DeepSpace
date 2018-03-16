@@ -14,13 +14,13 @@ module Deepspace
     
     attr_reader:gameState
     
-    def initialize(e,s,st,si)
-        @currentEnemy
-        @currentStation=s
+    def initialize()
+        @currentEnemy=nil
+        @currentStation=nil
         @gameState=GameStateController.new
         @dice=Dice.new
-        @spaceStations=st #array
-        @currentStationIndex
+        @spaceStations=nil#array
+        @currentStationIndex=0
         @turns=0
         
     end

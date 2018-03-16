@@ -6,7 +6,7 @@ module Deepspace
   require_relative 'ShieldBooster'
   require_relative 'Weapon'
   
-  class Hangar implements Copyable<Hangar>
+  class Hangar
     
     attr_reader:maxElements
     attr_reader:shieldBoosters

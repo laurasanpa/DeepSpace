@@ -5,7 +5,7 @@
 module Deepspace
   require_relative 'weapon_type'
   require_relative 'WeaponToUI'
-  class Weapon implements Copyable<Weapon>
+  class Weapon 
     attr_reader:name
 
     attr_reader:type

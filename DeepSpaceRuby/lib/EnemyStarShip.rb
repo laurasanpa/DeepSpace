@@ -5,7 +5,7 @@ module Deepspace
   require_relative 'Loot'
   require_relative 'Damage'
   
-  class EnemyStarShip implements Copyable<EnemyStarShip>
+  class EnemyStarShip
     attr_reader:ammoPower
     attr_reader:name
     attr_reader:shieldPower

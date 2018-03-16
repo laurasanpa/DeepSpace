@@ -14,6 +14,10 @@
         @power
       end
       
+      def name 
+        @name
+      end
+      
       def to_s
         "Power:#{@power}"
         "Name:#{@name}"
