@@ -34,7 +34,7 @@ public class EnemyStarShip {
        loot =e.loot;
        damage=e.damage;
    }
-   EnemyToUI getUIVersion(){
+   EnemyToUI getUIversion(){
        return new EnemyToUI(this);
    }
    

@@ -77,6 +77,7 @@ public class Hangar {
         return "Hangar{" + "maxElements=" + maxElements + ", shieldBoosters=" + shieldBoosters + ", weapons=" + weapons + '}';
     }
     
+
     
     
     

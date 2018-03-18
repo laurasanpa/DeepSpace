@@ -51,4 +51,18 @@ public class Damage {
             return (nShields==0 && nWeapons == 0);
         }
     }
+
+    public int getNShields() {
+        return nShields;
+    }
+
+    public int getNWeapons() {
+        return nWeapons;
+    }
+
+    public ArrayList<WeaponType> getWeapons() {
+        return weapons;
+    }
+    
+    
 }

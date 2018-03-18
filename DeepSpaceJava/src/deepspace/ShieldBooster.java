@@ -71,7 +71,9 @@ class ShieldBooster {
             return (float) 1.0;
     }
     
-    
+    public ShieldToUI getUIversion(){
+        return new ShieldToUI(this);
+    }
     }
    
    
