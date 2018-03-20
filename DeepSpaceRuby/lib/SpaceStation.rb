@@ -17,7 +17,6 @@ module Deepspace
     attr_reader:name
     attr_reader:shieldPower
     attr_reader:weapons #array
-    attr_reader:nMedals
     attr_reader:shieldBoosters
     attr_reader:hangar
     attr_reader:pendingDamage
@@ -33,13 +32,35 @@ module Deepspace
       @hangar=h
       @pendingDamage=pd
     end
+    
+    def NMedals
+      @nMedals
+    end
     #Nombre inventado. Posiblemente haya que cambiarlo en algún momento.
     def self.newSuppliesPackage(n, supplies)
       new(supplies.ammoPower,supplies.fuelUnits ,n,supplies.shieldPower,nil, nil, -1,-1)
     end
     
     def cleanUpMountedItems
-      throw new UnsupportedOperationException
+      i=0
+      auxweapons = Array.new
+      auxshieldboosters = Array.new
+      while i< @weapons.size
+        if @weapons[i].uses != 0
+          auxweapons.add(@weapons[i])
+        end
+      end
+      @weapons=auxweapons
+      
+      j=0
+      
+      while j< @shieldBoosters.size
+        if @shieldBoosters[i].uses != 0
+          auxshieldboosters.add(@shieldBoosters[i])
+        end
+      end
+      @shieldBoosters=auxshieldboosters
+      
     end
     
     def discardHangar
