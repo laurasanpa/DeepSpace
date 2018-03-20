@@ -26,7 +26,7 @@ public class Hangar {
         weapons=h.weapons;
     }
     
-    HangarToUI getUIVersion(){
+    HangarToUI getUIversion(){
         return new HangarToUI(this);
     }
     

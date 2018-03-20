@@ -32,7 +32,7 @@ public class Damage {
         weapons=d.weapons;
     }
     
-    DamageToUI getUIVersion(){
+    DamageToUI getUIversion(){
         return new DamageToUI(this);
     }
     

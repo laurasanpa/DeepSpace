@@ -56,7 +56,7 @@ public class SpaceStation {
         return name;
     }
 
-    public int getnMedals() {
+    public int getNMedals() {
         return nMedals;
     }
 
@@ -164,14 +164,35 @@ public class SpaceStation {
         }        
     }
     
-    public SpaceStationToUI getUIVersion(){
+    public SpaceStationToUI getUIversion(){
         return new SpaceStationToUI(this);
     }
     
+    public void discardShieldBooster(int i){
+        throw new UnsupportedOperationException();
+    }
     
+
     
+    public void discardWeapon(int i){
+        throw new UnsupportedOperationException();
+    }
     
+    public float fire(){
+       throw new UnsupportedOperationException();
+    }
     
+    public float protection(){
+        throw new UnsupportedOperationException();
+    }
+    
+    public ShotResult receiveShot(float i){
+        throw new UnsupportedOperationException();
+    }
+    
+    public void setLoot(Loot loot){
+        throw new UnsupportedOperationException();
+    }
     
     
     
