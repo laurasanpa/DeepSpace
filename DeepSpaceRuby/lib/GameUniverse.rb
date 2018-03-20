@@ -76,11 +76,11 @@ module Deepspace
     end
     
     def getUIversion
-      GameUniverseToUI.new(self)
+      GameUniverseToUI.new(@currentStation, @currentEnemy)
     end
     
     def haveAWinner
-      if @currentStation.nMedals==10
+      if @currentStation.NMedals==10
         return true
       else
         return false
