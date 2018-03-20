@@ -74,6 +74,13 @@ class ShieldBooster {
     public ShieldToUI getUIversion(){
         return new ShieldToUI(this);
     }
+
+    @Override
+    public String toString() {
+        return "ShieldBooster{" + "name=" + name + ", boost=" + boost + ", uses=" + uses + '}';
+    }
+    
+    
     }
    
    

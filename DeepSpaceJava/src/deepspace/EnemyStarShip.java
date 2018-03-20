@@ -72,6 +72,11 @@ public class EnemyStarShip {
        } else
            return ShotResult.RESIST;
    }
+
+    @Override
+    public String toString() {
+        return "EnemyStarShip{" + "name=" + name + ", shieldPower=" + shieldPower + ", loot=" + loot + ", damage=" + damage + '}';
+    }
     
     
 }

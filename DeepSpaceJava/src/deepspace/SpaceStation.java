@@ -154,14 +154,20 @@ public class SpaceStation {
     }
     
     public void cleanUpMountedItems(){
-        for(int i = 0;i<=weapons.size();++i){
-            if(weapons.get(i).getUses()==0)
-                weapons.remove(i);
+        ArrayList<Weapon> aux= new ArrayList<Weapon>();
+        for(int i=0; i<weapons.size();i++){
+            if(weapons.get(i).getUses()!=0)
+                aux.add(weapons.get(i));
         }
-        for(int i = 0;i<=shieldBoosters.size();++i){
-            if(shieldBoosters.get(i).getUses()==0)
-                shieldBoosters.remove(i);
-        }        
+        weapons = aux;
+        
+        ArrayList<ShieldBooster> aux2 = new ArrayList<ShieldBooster>();
+        for(int i=0; i<shieldBoosters.size();i++){
+            if(shieldBoosters.get(i).getUses()!=0)
+                aux2.add(shieldBoosters.get(i));
+        }
+        
+        shieldBoosters = aux2;
     }
     
     public SpaceStationToUI getUIversion(){

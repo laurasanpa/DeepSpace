@@ -63,6 +63,11 @@ public class Damage {
     public ArrayList<WeaponType> getWeapons() {
         return weapons;
     }
+
+    @Override
+    public String toString() {
+        return "Damage{" + "nShields=" + nShields + ", nWeapons=" + nWeapons + ", weapons=" + weapons + '}';
+    }
     
     
 }
