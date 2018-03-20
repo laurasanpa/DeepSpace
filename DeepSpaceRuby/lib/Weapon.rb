@@ -3,7 +3,7 @@
 # and open the template in the editor.
 
 module Deepspace
-  require_relative 'weapon_type'
+  require_relative 'WeaponType'
   require_relative 'WeaponToUI'
   class Weapon 
     attr_reader:name
@@ -36,9 +36,7 @@ module Deepspace
     end
     
     def to_s
-      "Name:#{@name}"
-      "Type:#{@type}"
-      "Uses:#{@uses}"
+      @name + " " + @type.to_s + " " + @uses.to_s
     end
     
     def getUIversion

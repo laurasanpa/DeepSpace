@@ -1,47 +1,54 @@
 # encoding: utf-8
 
 module Deepspace
- require_relative 'loot'
- require_relative 'supplies_package'
- require_relative 'shield_booster'
- require_relative 'shot_result'
- require_relative 'weapon_type'
- require_relative 'weapon'
- require_relative 'game_character'
- require_relative 'dice'
- require_relative 'combat_result'
+ require_relative 'Loot'
+ require_relative 'SuppliesPackage'
+ require_relative 'ShieldBooster'
+ require_relative 'ShotResult'
+ require_relative 'WeaponType'
+ require_relative 'Weapon'
+ require_relative 'GameCharacter'
+ require_relative 'Dice'
+ require_relative 'CombatResult'
+ require_relative "Hangar"
+ require_relative "SpaceStation"
+ require_relative "EnemyStarShip"
+ require_relative "Damage"
+ require "pp"
   class TestP1
 
     def main()
     
-      puts 'Esto es una prueba'
-    
-      #botín.
-      lote = Loot.new(1,2,3,4,5)
-      
-      puts "El botín tiene las siguientes medallas  #{lote.nMedals}"
-      
-      
-      #Paquetes de suministros
-      paq= SuppliesPackage.new(2,1,1)
-      puts "El paquete de suministros tiene la siguiente cantidad de suministro #{paq.fuelUnits}"
-      puts "El paquete de suministros tiene la siguiente recarga de escudos: #{paq.shieldPower}"
-      
-      # shield booster
-      nombre = "pepe"
-      
-      recarga = ShieldBooster.new(nombre,2,2)
-      
-      puts "Usos del potenciador de escudos: #{recarga.uses}" 
-      puts "useIt: #{recarga.useIt}"
+     w1 =Weapon.new("lolito",WeaponType::LASER,2)
+     w2 =Weapon.new("Laurita", WeaponType::MISSILE,0)
+     w3 =Weapon.new("Samuelillo", WeaponType::PLASMA,1)
      
-      #weapon
-      #No estoy seguro de como asignar laser y como consultar el tipo de arma.
-      nombre1 = "lolita"
-      arma1 =Weapon.new(nombre1,WeaponType::LASER,2)
+     w4 =Weapon.newCopy(w2)
+     
+      puts "Mostrando armas: "
+      pp(w1,w2,w3,w4)
+     
+      sb1 = ShieldBooster.new("EScudoLaurin", 2, 6)
+      sb2 = ShieldBooster.new("EscudoSamuelin", 1, 1)
+      pp(sb1)
       
-      puts "Tipo de arma: #{arma1.type}"
-      #Mandar correo.
+      aw=Array.new
+      aw.push(w1)
+      aw.push(w2)
+      aw.push(w3)
+      aw.push(w4)
+      
+      arrayshield=Array.new
+      arrayshield.push(sb1)
+      arrayshield.push(sb2)
+      
+      pp(arrayshield[0])
+      
+      h1 = Hangar.new(1)
+      h1.addWeapon(w2)
+      h1.addWeapon(w4)
+      h1.addWeapon(w1)
+      pp(h1)
     end
   
 

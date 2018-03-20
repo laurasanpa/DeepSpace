@@ -31,9 +31,7 @@ module Deepspace
     end
     
     def to_s
-      "Name:#{@name}"
-      "Boost:#{@boost}"
-      "Uses:#{@uses}"
+      @name + " " + @boost.to_s + " " +@uses.to_s
     end
   end
 end

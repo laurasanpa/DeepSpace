@@ -12,11 +12,14 @@ module Deepspace
     attr_reader:shieldBoosters
     attr_reader:weapons
     
-   def initialize(n,b,w)
+    #prep: Numero de elementos menor que n.
+   def initialize(n)
     @maxElements=n
-    @shieldBoosters = b #array
-    @weapons = w #array
+    @shieldBoosters = Array.new #array
+    @weapons = Array.new #array
    end
+     
+   
       
    def self.newCopy(h)
      new(h.maxElements, h.shieldBoosters, h.weapons)
@@ -30,9 +33,10 @@ module Deepspace
    # @return bool
    def addWeapon(w)
      if spaceAvailable 
-       @weapons.add(w)
+       @weapons.push(w)
        return true
      else 
+       puts "No hay espacio."
        return false
      end
    end
@@ -41,7 +45,7 @@ module Deepspace
    # @return bool
    def addShieldBooster(s)
       if spaceAvailable 
-       @shieldBooster.add(w)
+       @shieldBooster.push(w)
        return true
      else 
        return false
@@ -57,18 +61,16 @@ module Deepspace
    end
    
    def to_s
-      "Elementos max.:#{@maxElements}"
-      "ShieldBoosters:#{@shieldBoosters}"
-      "Weapons:#{@weapons}"
+      "Elementos max.: " + @maxElements.to_s +  " ShieldBoosters: " + @shieldBooster.to_s + "Weapons: " +@weapons.to_s
    end
    
    private
    
    def spaceAvailable
-      @weapons.length+@shieldBoosters.length <= @maxElements
+      @weapons.size+@shieldBoosters.size < @maxElements
    end
    
-   private_class_method :new
+   
    
 end
 
