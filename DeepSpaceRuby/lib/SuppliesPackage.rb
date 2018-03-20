@@ -24,9 +24,7 @@ module Deepspace
     
     def to_s
    
-       "AmmoPower:#{@ammoPower}"
-       "FuelUnits:#{@fuelUnits}"
-       "ShieldPower:#{@shieldPower}"
+       "AmmoPower:  #{@ammoPower}\nFuelUnits:#{@fuelUnits} \nShieldPower: #{@shieldPower}"
     end
     
   end

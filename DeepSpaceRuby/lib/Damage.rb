@@ -33,6 +33,7 @@ module Deepspace
       HangarToUI.new(self)
     end
     
+    # Ojito!!!! El discard Weapon borra el tipo de arma, no el arma. Hay que mirarlo.
     def discardWeapon(w)
         if @nWeapons == -1
           @weapons.delete_all(w)

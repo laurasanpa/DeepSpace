@@ -21,24 +21,20 @@ module Deepspace
     attr_reader:hangar
     attr_reader:pendingDamage
     
-    def initialize(a,f,n,m,sp,w,sb,h,pd)
-      @ammoPower=a
-      @fuelUnits=f
+    def initialize(n,supplies)
+      @ammoPower=supplies.ammoPower
+      @fuelUnits=supplies.fuelUnits
       @name=n
-      @nMedals=m
-      @shieldPower=sp
-      @weapons=w #array
-      @shieldBoosters=sb #array
-      @hangar=h
-      @pendingDamage=pd
+      @nMedals=0
+      @shieldPower=supplies.shieldPower
+      @weapons=nil
+      @shieldBoosters=nil
+      @hangar=-1
+      @pendingDamage=-1
     end
     
     def NMedals
       @nMedals
-    end
-    #Nombre inventado. Posiblemente haya que cambiarlo en algún momento.
-    def self.newSuppliesPackage(n, supplies)
-      new(supplies.ammoPower,supplies.fuelUnits ,n,supplies.shieldPower,nil, nil, -1,-1)
     end
     
     def cleanUpMountedItems
@@ -170,15 +166,7 @@ module Deepspace
     end
     
     def to_s
-      "Name:#{@name}"
-      "AmmoPower:#{@ammoPower}"
-      "FuelUnits:#{@fuelUnits}"
-      "ShieldPower:#{@shieldPower}"
-      "Weapons:#{@weapons}"
-      "Medals:#{@nMedals}"
-      "ShieldBoosters:#{@shieldBoosters}"
-      "Hangar:#{@hangar}"
-      "PendingDamage:#{@pendingDamage}"
+      "Name: #{@name} \n AmmoPower: #{@ammoPower}\n FuelUnits: #{@fuelUnits}\n ShieldPower: #{@shieldPower}\n Weapons: #{@weapons}\n Medals: #{@nMedals}\n ShieldBoosters: #{@shieldBoosters}\n Hangar: #{@hangar} \nPendingDamage: #{@pendingDamage}"
     end
     
    
@@ -195,8 +183,6 @@ module Deepspace
       #Comprobar que no tenga efecto
       @pendingDamage=nil
     end
-    
-    private_class_method :new
     
   end
 end

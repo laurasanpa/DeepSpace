@@ -11,8 +11,8 @@ module Deepspace
     attr_reader:maxElements
     attr_reader:shieldBoosters
     attr_reader:weapons
+   
     
-    #prep: Numero de elementos menor que n.
    def initialize(n)
     @maxElements=n
     @shieldBoosters = Array.new #array
@@ -53,11 +53,15 @@ module Deepspace
    end
    
    def removeShieldBooster(n)
+     if @shieldBooster != nil
      @shielBooster.delete_at(n)
+     end
    end
    
    def removeWeapon(n)
+     if @weapons !=nil
      @weapons.delete_at(n)
+     end
    end
    
    def to_s
@@ -71,7 +75,5 @@ module Deepspace
    end
    
    
-   
-end
-
+   end  
 end

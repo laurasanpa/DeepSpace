@@ -49,6 +49,27 @@ module Deepspace
       h1.addWeapon(w4)
       h1.addWeapon(w1)
       pp(h1)
+      
+      puts("Hemos borrado el arma en la posición 1")
+      h1.removeWeapon(0)
+      h1.removeShieldBooster(0)
+      pp(h1)
+      
+      supplies = SuppliesPackage.new(10, 50, 9)
+      
+      pp(supplies)
+      
+      station1=SpaceStation.new("Halcon Milenario",supplies)
+      
+      pp(station1)
+      
+      
+      
+      
+      
+      
+      
+      
     end
   
 
