@@ -27,9 +27,9 @@ module Deepspace
       @name=n
       @nMedals=0
       @shieldPower=supplies.shieldPower
-      @weapons=nil
-      @shieldBoosters=nil
-      @hangar=-1
+      @weapons=Array.new
+      @shieldBoosters=Array.new
+      @hangar=nil
       @pendingDamage=-1
     end
     
@@ -41,18 +41,23 @@ module Deepspace
       i=0
       auxweapons = Array.new
       auxshieldboosters = Array.new
-      while i< @weapons.size
-        if @weapons[i].uses != 0
-          auxweapons.add(@weapons[i])
+      
+      if @weapons !=nil
+        while i< @weapons.size
+          if @weapons[i].uses != 0
+            auxweapons.add(@weapons[i])
+          end
         end
       end
       @weapons=auxweapons
       
       j=0
       
-      while j< @shieldBoosters.size
-        if @shieldBoosters[i].uses != 0
-          auxshieldboosters.add(@shieldBoosters[i])
+      if @shieldBoosters != nil
+        while j< @shieldBoosters.size
+          if @shieldBoosters[i].uses != 0
+            auxshieldboosters.add(@shieldBoosters[i])
+          end
         end
       end
       @shieldBoosters=auxshieldboosters
@@ -67,7 +72,7 @@ module Deepspace
        unless @hangar==nil
         h=@hangar.removeShieldBooster(i)
         unless h == nil
-          weapons.add(h)
+          @shieldBoosters.push(h)
         end
       end
     end
@@ -86,7 +91,7 @@ module Deepspace
       unless @hangar==nil
         h=@hangar.removeWeapon(i)
         unless h == nil
-          weapons.add(h)
+          @weapons.push(h)
         end
       end
     end

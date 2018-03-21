@@ -44,7 +44,7 @@ module Deepspace
       
       pp(arrayshield[0])
       
-      h1 = Hangar.new(1)
+      h1 = Hangar.new(6)
       h1.addWeapon(w2)
       h1.addWeapon(w4)
       h1.addWeapon(w1)
@@ -55,16 +55,32 @@ module Deepspace
       h1.removeShieldBooster(0)
       pp(h1)
       
+      h1.addWeapon(w2)
+      h1.addWeapon(w4)
+      
+      h1.addShieldBooster(sb1)
+      h1.addShieldBooster(sb2)
+      
       supplies = SuppliesPackage.new(10, 50, 9)
       
       pp(supplies)
       
       station1=SpaceStation.new("Halcon Milenario",supplies)
+      station1.receiveHangar(h1)
+      puts("\n Mostrando hangar: \n")
+      pp(h1)
+     # pp(station1)
       
-      pp(station1)
+     # station1.mountShieldBooster(0)
+     # station1.mountWeapon(1)
+      
+     # pp(station1)
+     
       
       
-      
+     # puts("Borrando estación 1:\n")
+     #station1.cleanUpMountedItems
+      #pp(station1)
       
       
       
