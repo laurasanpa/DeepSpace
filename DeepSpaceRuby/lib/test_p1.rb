@@ -28,7 +28,7 @@ module Deepspace
       puts "Mostrando armas: "
       pp(w1,w2,w3,w4)
      
-      sb1 = ShieldBooster.new("EScudoLaurin", 2, 6)
+      sb1 = ShieldBooster.new("EscudoLaurin", 2, 6)
       sb2 = ShieldBooster.new("EscudoSamuelin", 1, 1)
       pp(sb1)
       
@@ -38,51 +38,54 @@ module Deepspace
       aw.push(w3)
       aw.push(w4)
       
-      arrayshield=Array.new
-      arrayshield.push(sb1)
-      arrayshield.push(sb2)
-      
-      pp(arrayshield[0])
-      
-      h1 = Hangar.new(6)
+      h1 = Hangar.new(10)
       h1.addWeapon(w2)
       h1.addWeapon(w4)
       h1.addWeapon(w1)
+      pp(h1)
+      pp(h1.addShieldBooster(sb1))
+      puts("Añadido escudo")
+      pp(h1)
+      h1.addShieldBooster(sb2)
+      puts("Elementos añadidos")
       pp(h1)
       
       puts("Hemos borrado el arma en la posición 1")
       h1.removeWeapon(0)
       h1.removeShieldBooster(0)
       pp(h1)
+     
       
-      h1.addWeapon(w2)
-      h1.addWeapon(w4)
-      
-      h1.addShieldBooster(sb1)
-      h1.addShieldBooster(sb2)
-      
-      supplies = SuppliesPackage.new(10, 50, 9)
+      supplies = SuppliesPackage.new(10, 60, 9)
       
       pp(supplies)
       
       station1=SpaceStation.new("Halcon Milenario",supplies)
+      pp(station1)
+      
       station1.receiveHangar(h1)
-      puts("\n Mostrando hangar: \n")
-      pp(h1)
-     # pp(station1)
+      pp(station1)
       
-     # station1.mountShieldBooster(0)
-     # station1.mountWeapon(1)
+      station1.mountShieldBooster(0)
+      station1.mountWeapon(1)
       
-     # pp(station1)
+      pp(station1)
+      
+      station1.discardWeaponInHangar(0)
+      
+      pp(station1)
+      
+      station1.receiveSupplies(supplies)
+      station1.receiveSupplies(supplies)
+      pp(station1)
+      
+      station1.discardHangar
+      
+      pp(station1)
+      
+      station1.cleanUpMountedItems
+      pp(station1)
      
-      
-      
-     # puts("Borrando estación 1:\n")
-     #station1.cleanUpMountedItems
-      #pp(station1)
-      
-      
       
       
       

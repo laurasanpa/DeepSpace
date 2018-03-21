@@ -45,7 +45,7 @@ module Deepspace
       if @weapons !=nil
         while i< @weapons.size
           if @weapons[i].uses != 0
-            auxweapons.add(@weapons[i])
+            auxweapons.push(@weapons[i])
           end
         end
       end
@@ -56,7 +56,7 @@ module Deepspace
       if @shieldBoosters != nil
         while j< @shieldBoosters.size
           if @shieldBoosters[i].uses != 0
-            auxshieldboosters.add(@shieldBoosters[i])
+            auxshieldboosters.size(@shieldBoosters[i])
           end
         end
       end
@@ -146,7 +146,10 @@ module Deepspace
     
     def receiveSupplies(s)
       @ammoPower+=s.ammoPower
-      @fuelUnits+=s.fuelUnits
+      a=@fuelUnits
+      if (a+=s.fuelUnits) > @@MAXFUEL
+        @fuelUnits=@@MAXFUEL
+      end
       @shieldPower+=s.shieldPower
     end
     

@@ -53,8 +53,8 @@ module Deepspace
    end
    
    def removeShieldBooster(n)
-     if @shieldBooster != nil && n<@shieldBooster.size
-     @shielBooster.delete_at(n)
+     if @shieldBoosters != nil && n<@shieldBoosters.size
+     @shieldBoosters.delete_at(n)
      end
    end
    
@@ -65,7 +65,7 @@ module Deepspace
    end
    
    def to_s
-      "\n Elementos max: #{@maxElements}\n ShieldBoosters: #{@shieldBooster}\n Weapons: #{@weapons}"
+      "\n Elementos max: #{@maxElements}\n ShieldBoosters: #{@shieldBoosters}\n Weapons: #{@weapons}"
    end
    
    private
