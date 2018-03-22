@@ -25,6 +25,7 @@ module Deepspace
      new(-1,s,wl)
     end
     
+    #Comprobar si weapons se puede asignar así
     def self.newCopy(d)
       new(d.nWeapons, d.nShields, d.weapons)
     end
@@ -33,10 +34,10 @@ module Deepspace
       HangarToUI.new(self)
     end
     
-    # Ojito!!!! El discard Weapon borra el tipo de arma, no el arma. Hay que mirarlo.
+ 
     def discardWeapon(w)
         if @nWeapons == -1
-          @weapons.delete_all(w)
+          @weapons.delete(w.type)
         else if @nWeapons>0
           @nWeapons = @nWeapons-1  
         end
@@ -58,26 +59,38 @@ module Deepspace
     end
     
     def to_s
-      "NWeapons:#{@nWeapons}"
-      "NShields:#{@nShields}"
-      "Weapons:#{@weapons}"
+      "NWeapons:#{@nWeapons} \n NShields:#{@nShields} \n Weapons:#{@weapons}"
     end
     
     def adjust(w,s)
-      w=w+s
-      w=w&@weapons
-      s=s&@weapons
-      
-      adjusteddamage = Damage.newSpecificWeapons(w,s.length)
+      #Si damage es específico
+      if @weapons != nil
+        auxweapons=[]
+        for i  in 0..@weapons.size-1
+          auxweapons.push(@weapons[i])
+        end
+        h=[]
+        #Sacamos el vector intersección
+        for j in 0...w.size
+          if arrayContainsType(auxweapons,w[j].type)!=-1
+            h.push(auxweapons[arrayContainsType(auxweapons,w[j].type)])
+            auxweapons.delete_at(arrayContainsType(auxweapons,w[j].type))
+          end
+        end
+        #Creamos nuevo damage
+        Damage.newSpecificWeapons(auxweapons,[@nShields, s.size].min)
+      else 
+        Damage.newNumericWeapons([@nWeapons, w.size].min,[@nShields, s.size].min)
+      end
     end
     
     private
     
     def arrayContainsType(w,t)
-      if w.find_index(t)== nill
+      if w.find_index(t)== nil
         return -1
       else 
-        return w.find_index(t)
+        return w.index(t)
       end
     end
     

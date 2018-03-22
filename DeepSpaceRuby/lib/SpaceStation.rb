@@ -170,7 +170,7 @@ module Deepspace
     end
     
     def setpendingDamage(d)
-      @pendingDamage=d
+      @pendingDamage=d.adjust(@weapons,@shieldBoosters)
     end
     
     def to_s

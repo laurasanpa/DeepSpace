@@ -58,34 +58,26 @@ module Deepspace
       
       supplies = SuppliesPackage.new(10, 60, 9)
       
-      pp(supplies)
+    
+      weapons=Array.new
+      weapons.push(w1.type)
+      weapons.push(w3.type)
+      weapons.push(w1.type)
       
-      station1=SpaceStation.new("Halcon Milenario",supplies)
-      pp(station1)
+      weapons2=[]
+      weapons2.push(w1)
+      weapons2.push(w1)
+      weapons2.push(w1)
+      shields=[]
+      shields.push(sb1)
       
-      station1.receiveHangar(h1)
-      pp(station1)
+      damage1=Damage.newSpecificWeapons(weapons,2)
+      puts("Damage1: \n")
+      pp(damage1)
+      d=Damage.newCopy(damage1.adjust(weapons2,shields))
       
-      station1.mountShieldBooster(0)
-      station1.mountWeapon(1)
-      
-      pp(station1)
-      
-      station1.discardWeaponInHangar(0)
-      
-      pp(station1)
-      
-      station1.receiveSupplies(supplies)
-      station1.receiveSupplies(supplies)
-      pp(station1)
-      
-      station1.discardHangar
-      
-      pp(station1)
-      
-      station1.cleanUpMountedItems
-      pp(station1)
-     
+      damage2=Damage.newCopy(damage1)
+      pp(damage2)
       
       
       

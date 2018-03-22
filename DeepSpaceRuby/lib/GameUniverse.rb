@@ -19,7 +19,7 @@ module Deepspace
         @currentStation=nil
         @gameState=GameStateController.new
         @dice=Dice.new
-        @spaceStations=nil#array
+        @spaceStations=Array.new
         @currentStationIndex=0
         @turns=0
         
@@ -80,11 +80,7 @@ module Deepspace
     end
     
     def haveAWinner
-      if @currentStation.NMedals==10
-        return true
-      else
-        return false
-      end
+       @currentStation.NMedals==10
     end
     
     def init(names)
@@ -96,11 +92,7 @@ module Deepspace
     end
     
     def to_s
-      "CurrentEnemy:#{@currentEnemy}"
-      "CurrentStations:#{@currentStation}"
-      "GameState:#{@gameState}"
-      "Dice:#{@dice}"
-      "SpaceStations:#{@spaceStations}"
+      "CurrentEnemy:#{@currentEnemy} \n CurrentStations:#{@currentStation} \n GameState:#{@gameState} \n Dice:#{@dice} \n SpaceStations:#{@spaceStations}"
     end
   end
 end
