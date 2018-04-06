@@ -24,7 +24,7 @@ module Deepspace
          end
     end
     
-    def initWithWeapons 
+    def initWithNWeapons 
       
        prob=generator.rand(1.0)
        if prob < NWEAPONSPROB
@@ -36,7 +36,7 @@ module Deepspace
        end
     end
     
-    def initWithShields
+    def initWithNShields
         if generator.rand(1.0)< NSHIELDSPROB
           return 0
         else

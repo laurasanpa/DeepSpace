@@ -7,6 +7,8 @@ module Deepspace
   require_relative 'Hangar'
   require_relative 'Damage'
   require_relative 'SuppliesPackage'
+  require_relative 'ShotResult'
+  require_relative 'CardDealer'
  
   class SpaceStation
     @@MAXFUEL=100
@@ -30,7 +32,7 @@ module Deepspace
       @weapons=Array.new
       @shieldBoosters=Array.new
       @hangar=nil
-      @pendingDamage=-1
+      @pendingDamage=nil
     end
     
     def NMedals
@@ -78,7 +80,14 @@ module Deepspace
     end
     
     def discardShieldBooster(i)
-      throw new UnsupportedOperationException
+      size=@shieldBoosters.size
+      if i>=0 && i<size
+        s=@shieldBoosters.delete_at(i)
+        if @pendingDamage != nil
+          @pendingDamage.discardShieldBooster(s)
+          cleanPendingDamage
+        end
+      end
     end
     
     def discardShieldBoosterInHangar(i)
@@ -97,7 +106,14 @@ module Deepspace
     end
     
     def discardWeapon(i)
-      throw new UnsupportedOperationException
+      size=@weapons.size
+      if i>=0 && i<size
+        w=@weapons.delete_at(i)
+        if @pendingDamage != nil
+          @pendingDamage.discardWeapon(w)
+          cleanPendingDamage
+        end
+      end
     end
     
     def discardWeaponInHangar(i)
@@ -111,7 +127,14 @@ module Deepspace
     end
     
     def fire
-      throw new UnsupportedOperationException
+      size = @weapons.size
+      factor = 1.0
+      
+      for i in (0...size)
+        w=@weapons[i]
+        factor*=w.useIt
+      end
+      @ammoPower*factor
     end
     
     def getSpeed
@@ -123,7 +146,14 @@ module Deepspace
     end
     
     def protection
-      throw new UnsupportedOperationException
+      size = @shieldBoosters.size
+      factor = 1.0
+      
+      for i in (0...size)
+        s=@shieldBoosters[i]
+        factor*=s.useIt
+      end
+      @shieldPower*factor
     end
     
     def receiveHangar(h)
@@ -141,8 +171,16 @@ module Deepspace
     end
     
     def receiveShot(shot)
-      throw new UnsupportedOperationException
-    end
+      myProtection=protection
+      if myProtection >= shot 
+        @shieldPower-=@@SHIELDLOSSPERUNITSHOT*shot
+        @shieldPower=Max(0.0,@shieldPower)
+        return shotResult.RESIST
+      end
+      else
+        @shieldPower=0.0
+        return shotResult.DONOTRESIST
+      end
     
     def receiveSupplies(s)
       @ammoPower+=s.ammoPower
@@ -162,7 +200,36 @@ module Deepspace
     end
     
     def loot(loot)
-      throw new UnsupportedOperationException
+      dealer = CardDealer.instance
+      h=loot.nHangars
+      if h>0
+        hangar=dealer.nexHangar
+        receiveHangar(hangar)        
+      end
+      
+      elements=loot.nSupplies
+      
+      for i in (0...elements)
+        sup=dealer.nextSuppliesPackage
+        receiveSupplies(sup)
+      end
+      
+      elements=loot.nWeapons
+      
+      for j in (0...elements)
+        weap=dealer.nextWeapon
+        receiveWeapon(weap)
+      end      
+      
+      elements=loot.nShields
+      
+       for i in (0...elements)
+        sh=dealer.nextShieldBooster
+        receiveShieldBooster(sh)
+      end    
+      
+      medals=loot.nMedals
+      @nMedals+=medals
     end
     
     def validState

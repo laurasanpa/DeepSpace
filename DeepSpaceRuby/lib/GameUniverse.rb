@@ -7,6 +7,8 @@ module Deepspace
   require_relative 'GameStateController'
   requite_relative 'Dice'
   require_relative 'SpaceStation'
+  require_relative 'GameState'
+  require_relative 'GameResult'
   
   class GameUniverse
     
@@ -26,11 +28,19 @@ module Deepspace
     end
     
     def combat
-      throw new UnsupportedOperationException
+      state = @gameState.state
+      
+      if (state == GameState.BEFORECOMBAT)||(state==GameState.INIT)
+        combatGO(@currentStation,@currentEnemy)
+      else 
+        CombatResult::NOCOMBAT
+      end
     end
     
     def combatGO(station,enemy)
-      throw new UnsupportedOperationException
+      ch=@dice.firstShot
+      
+      if ch==GameCharacter::ENEMYSTARSHIP
     end
     
     def discardHangar
@@ -84,11 +94,48 @@ module Deepspace
     end
     
     def init(names)
-      throw new UnsupportedOperationException
+      state=@gameState.state
+      if state == GameState.CANNOTPLAY
+        spaceStations = Array.new
+        dealer = CardDealer.instance
+        
+        for i in (0...names.size)
+          supplies=dealer.nextSuppliesPackage
+          station=SpaceStation.new(names[i],supplies)
+          nh=@dice.initWithNHangars
+          nw=@dice.initWithNWeapons
+          ns=@dice.initWithNShields
+          l=Loot.new(0,nh,nw,ns,0)
+          station.loot(l)
+        end
+        
+        currentStationIndex = @dice.whoStarts(names.size)
+        currentStation=spaceStations[currentStationIndex]
+        currentEnemy=dealer.nextEnemy
+        @gameState.next(@turns, spaceStations.size)
+      end
     end
     
     def nextTurn
-      throw new UnsupportedOperationException
+      state=@gameState.state
+      
+      if state==GameState.AFTERCOMBAT
+        stationState =@currentStation.validState
+        
+        if stationState
+          @currentStationIndex=(@currentStationIndex+1) % @spaceStations.size
+          @turns+=1
+          
+          @currentStation = @spaceStations[@currentStationIndex]
+          @currentStation.cleanUpMountedItems
+          dealer=CardDealer.instance
+          @currentEnemy=dealer.nextEnemy
+          @gameState.next(@turns,@spaceStations.size)
+          return true
+        end
+        return false
+      end
+        return false
     end
     
     def to_s

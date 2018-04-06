@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Damage.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/SpaceStation.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Dice.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/GameUniverse.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDealer.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Loot.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDeck.rb</file>
+        </group>
     </open-files>
 </project-private>
