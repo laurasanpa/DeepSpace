@@ -17,7 +17,7 @@ module Deepspace
     
    
     def initWithNHangars
-        if generator.nextDouble()<= NHANGARSPROB 
+        if @generator.rand(1.0)<= @NHANGARSPROB 
             return 0
         else
             return 1
@@ -26,10 +26,10 @@ module Deepspace
     
     def initWithNWeapons 
       
-       prob=generator.rand(1.0)
-       if prob < NWEAPONSPROB
+       prob=@generator.rand(1.0)
+       if prob < @NWEAPONSPROB
            return 1
-       elsif prob>NWEAPONSPROB && prob<(2*NWEAPONSPROB)
+       elsif prob>@NWEAPONSPROB && prob<(2*@NWEAPONSPROB)
            return 2
        else
            return 3
@@ -37,7 +37,7 @@ module Deepspace
     end
     
     def initWithNShields
-        if generator.rand(1.0)< NSHIELDSPROB
+        if @generator.rand(1.0)<@NSHIELDSPROB
           return 0
         else
             return 1
@@ -46,14 +46,14 @@ module Deepspace
     
     def whoStarts(nPlayers)
       
-        generator.rand(nPlayers)
+        @generator.rand(nPlayers)
     end
     
     def firstShot
       #spacestation=GameCharacter.new.
       #enemystarship=GameCharacter.new
      
-         if generator.rand(1.0)<FIRSTSHOTPROB
+         if @generator.rand(1.0)<@FIRSTSHOTPROB
              return spacestation
          else
              return enemystarship
@@ -61,7 +61,7 @@ module Deepspace
     end
     
     def spaceStationMoves(speed)
-         if generator.rand(1.0)<speed
+         if @generator.rand(1.0)<speed
              return true
          else
              return false

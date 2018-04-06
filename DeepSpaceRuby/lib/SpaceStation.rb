@@ -9,6 +9,7 @@ module Deepspace
   require_relative 'SuppliesPackage'
   require_relative 'ShotResult'
   require_relative 'CardDealer'
+  require_relative 'SpaceStationToUI'
  
   class SpaceStation
     @@MAXFUEL=100
@@ -71,9 +72,9 @@ module Deepspace
     end
     
     def mountShieldBooster(i)
-       unless @hangar==nil
+       if @hangar!=nil
         h=@hangar.removeShieldBooster(i)
-        unless h == nil
+        if h != nil
           @shieldBoosters.push(h)
         end
       end
@@ -91,15 +92,15 @@ module Deepspace
     end
     
     def discardShieldBoosterInHangar(i)
-      unless @hangar==nil
+      if @hangar!=nil
         @hangar.removeShieldBooster(i)
       end
     end
     
     def mountWeapon(i)
-      unless @hangar==nil
+      if @hangar!=nil
         h=@hangar.removeWeapon(i)
-        unless h == nil
+        if h != nil
           @weapons.push(h)
         end
       end
@@ -117,7 +118,7 @@ module Deepspace
     end
     
     def discardWeaponInHangar(i)
-      unless @hangar==nil
+      if @hangar!=nil
         @hangar.removeWeapon(i)
       end
     end
@@ -163,9 +164,9 @@ module Deepspace
     end
     
     def receiveShieldBooster(s)
-       unless @hangar==nil
+      if @hangar!=nil
         return @hangar.addShieldBooster(s)
-       else 
+      else 
         return false
        end
     end
@@ -175,12 +176,12 @@ module Deepspace
       if myProtection >= shot 
         @shieldPower-=@@SHIELDLOSSPERUNITSHOT*shot
         @shieldPower=Max(0.0,@shieldPower)
-        return shotResult.RESIST
-      end
+        return shotResult::RESIST
       else
         @shieldPower=0.0
-        return shotResult.DONOTRESIST
+        return shotResult::DONOTRESIST
       end
+    end
     
     def receiveSupplies(s)
       @ammoPower+=s.ammoPower
@@ -192,7 +193,7 @@ module Deepspace
     end
     
     def receiveWeapon(w)
-      unless @hangar==nil
+      if @hangar!=nil
         return @hangar.addWeapon(w)
       else 
         return false
@@ -203,7 +204,7 @@ module Deepspace
       dealer = CardDealer.instance
       h=loot.nHangars
       if h>0
-        hangar=dealer.nexHangar
+        hangar=dealer.nextHangar
         receiveHangar(hangar)        
       end
       
@@ -236,7 +237,7 @@ module Deepspace
       @pendingDamage==nil 
     end
     
-    def setpendingDamage(d)
+    def setPendingDamage(d)
       @pendingDamage=d.adjust(@weapons,@shieldBoosters)
     end
     

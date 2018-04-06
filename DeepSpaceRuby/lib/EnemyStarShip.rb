@@ -47,7 +47,6 @@ module Deepspace
     def to_s
       "Name:#{@name} \n AmmoPower:#{@ammoPower} \n ShieldPower:#{@shieldPower} \n Loot:#{@loot} \n Damage:#{@damage}"
     end
-    
-    private_class_method :new
+   
   end
 end
