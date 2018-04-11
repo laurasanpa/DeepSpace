@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Damage.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/SpaceStation.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Dice.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/GameUniverse.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDealer.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Loot.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDeck.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/Weapon.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/Hangar.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/EnemyStarShip.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/Damage.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/test_p1.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/WeaponType.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/ShieldBooster.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/SpaceStation.rb</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceRuby/lib/HangarToUI.rb</file>
         </group>
     </open-files>
 </project-private>

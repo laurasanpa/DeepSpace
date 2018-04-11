@@ -40,7 +40,7 @@ module Deepspace
     end
     
     def getUIversion
-      h = WeaponToUI.new(self)
+      WeaponToUI.new(self)
     end
   
   end

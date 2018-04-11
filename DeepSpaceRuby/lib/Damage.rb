@@ -31,7 +31,7 @@ module Deepspace
     end
     
     def getUIversion
-      HangarToUI.new(self)
+      DamageToUI.new(self)
     end
     
  
@@ -52,9 +52,9 @@ module Deepspace
     
     def hasNoEffect
       if @nWeapons==-1
-        return @nShields=0 && @Weapons==nill
+        return (@nShields=0 && @weapons.length==0)
       else
-        return @nWeapons=0 && @nShields=0
+        return (@nWeapons=0 && @nShields=0)
       end
     end
     
@@ -63,7 +63,7 @@ module Deepspace
     end
     
     def adjust(w,s)
-      #Si damage es específico
+          #Si damage es específico
       if @weapons != nil
         auxweapons=[]
         for i  in 0..@weapons.size-1
@@ -83,7 +83,6 @@ module Deepspace
         Damage.newNumericWeapons([@nWeapons, w.size].min,[@nShields, s.size].min)
       end
     end
-    
     private
     
     def arrayContainsType(w,t)

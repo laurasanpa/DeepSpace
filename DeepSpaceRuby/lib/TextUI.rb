@@ -1,7 +1,7 @@
 #encoding:utf-8
 
 require 'singleton'
-
+require_relative 'CombatResult'
 require_relative 'Command'
 
 module UI

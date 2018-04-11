@@ -23,6 +23,7 @@ module Deepspace
     attr_reader:shieldBoosters
     attr_reader:hangar
     attr_reader:pendingDamage
+    attr_reader:nMedals
     
     def initialize(n,supplies)
       @ammoPower=supplies.ammoPower
@@ -85,7 +86,7 @@ module Deepspace
       if i>=0 && i<size
         s=@shieldBoosters.delete_at(i)
         if @pendingDamage != nil
-          @pendingDamage.discardShieldBooster(s)
+          @pendingDamage.discardShieldBooster
           cleanPendingDamage
         end
       end
@@ -176,12 +177,13 @@ module Deepspace
       if myProtection >= shot 
         @shieldPower-=@@SHIELDLOSSPERUNITSHOT*shot
         @shieldPower=Max(0.0,@shieldPower)
-        return shotResult::RESIST
+        return ShotResult::RESIST
       else
         @shieldPower=0.0
-        return shotResult::DONOTRESIST
+        return ShotResult::DONOTRESIST
       end
     end
+    
     
     def receiveSupplies(s)
       @ammoPower+=s.ammoPower
@@ -234,7 +236,7 @@ module Deepspace
     end
     
     def validState
-      @pendingDamage==nil 
+      return (@pendingDamage==nil || @pendingDamage.hasNoEffect)
     end
     
     def setPendingDamage(d)
@@ -256,8 +258,17 @@ module Deepspace
     end
 
     def cleanPendingDamage
-      #Comprobar que no tenga efecto
-      @pendingDamage=nil
+      if @pendingDamage.hasNoEffect
+        @pendingDamage=nil
+      end
+    end
+    
+    def Max(a,b)
+      if a>b
+        a
+      else
+        b
+      end
     end
     
   end

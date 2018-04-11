@@ -3,7 +3,14 @@
 # and open the template in the editor.
 
 module Deepspace
+  
+  require_relative 'ShieldToUI'
   class ShieldBooster 
+    attr_reader:name
+
+    attr_reader:boost
+
+    attr_reader:uses
     def initialize(n,b,u)
       @name = n
       @boost = b
@@ -14,13 +21,10 @@ module Deepspace
     def self.newCopy(s)
       new(s.name, s.boost, s.uses)
     end
-
-    attr_reader:name
-
-    attr_reader:boost
-
-    attr_reader:uses
-
+    
+    def getUIversion
+     ShieldToUI.new(self)
+    end
     def useIt
       if @uses > 0
         @uses=@uses-1

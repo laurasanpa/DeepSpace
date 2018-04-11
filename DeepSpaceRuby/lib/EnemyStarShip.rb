@@ -4,6 +4,7 @@
 module Deepspace
   require_relative 'Loot'
   require_relative 'Damage'
+  require_relative 'EnemyToUI'
   
   class EnemyStarShip
     attr_reader:ammoPower
@@ -25,7 +26,7 @@ module Deepspace
     end
     
     def getUIversion
-      EnemyStarShipToUI.new(self)
+      EnemyToUI.new(self)
     end
     
     def protection

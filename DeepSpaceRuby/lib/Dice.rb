@@ -1,5 +1,6 @@
 
 module Deepspace
+  require_relative 'GameCharacter'
   
   class Dice
     
@@ -50,8 +51,8 @@ module Deepspace
     end
     
     def firstShot
-      #spacestation=GameCharacter.new.
-      #enemystarship=GameCharacter.new
+      spacestation=GameCharacter::SPACESTATION 
+      enemystarship=GameCharacter::ENEMYSTARSHIP
      
          if @generator.rand(1.0)<@FIRSTSHOTPROB
              return spacestation

@@ -22,13 +22,18 @@ module Deepspace
    
       
    def self.newCopy(h)
-     new(h.maxElements)
-     @shieldBoosters=h.shieldBoosters
-     @weapons=h.weapons
+    nuevo =  new(h.maxElements)
+     for i in (0...h.shieldBoosters.size)
+     nuevo.addShieldBooster(h.shieldBoosters[i])
+     end
+     for j in (0...h.weapons.size)
+     nuevo.addWeapon(h.weapons[i])
+     end
+     return nuevo
    end
    
    def getUIversion
-     h = HangarToUI.new(self)
+     HangarToUI.new(self)
    end
    
    # @param weapon

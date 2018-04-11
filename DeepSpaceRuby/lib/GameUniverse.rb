@@ -16,24 +16,28 @@ module Deepspace
     
     @@WIN=10
     
-    attr_reader:gameState
+    
     
     def initialize()
         @currentEnemy=nil
         @currentStation=nil
         @gameState=GameStateController.new
         @dice=Dice.new
-        @spaceStations=nil
+        @spaceStations=Array.new
         @currentStationIndex=0
         @turns=0
         
     end
     
+    def state
+      @gameState.state
+    end
+    
     def combat
       state = @gameState.state
       
-      if (state == GameState.BEFORECOMBAT)||(state==GameState.INIT)
-        combatGO(@currentStation,@currentEnemy)
+      if ((state == GameState::BEFORECOMBAT)||(state==GameState::INIT))
+        return combatGO(@currentStation,@currentEnemy)
       else 
         CombatResult::NOCOMBAT
       end
@@ -43,35 +47,35 @@ module Deepspace
       ch=@dice.firstShot
       
       if ch==GameCharacter::ENEMYSTARSHIP
-        fire=@currentEnemy.fire
-        result=@currentStation.receiveShot(fire)
+        fire=enemy.fire
+        result=station.receiveShot(fire)
         if result==ShotResult::RESIST
-          fire=@currentStation.fire
-          result=@currentEnemy.receiveShot(fire)
+          fire=station.fire
+          result=enemy.receiveShot(fire)
           enemywins=(result==ShotResult::RESIST)
         else
           enemywins=true
         end
       else
-        fire=@currentStation.fire
-        result=@currentEnemy.receiveShot(fire)
+        fire=station.fire
+        result=enemy.receiveShot(fire)
         enemywins=(result==ShotResult::RESIST)
       end
       
       if enemywins 
-        s=@currentStation.getSpeed
+        s=station.getSpeed
         moves=@dice.spaceStationMoves(s)
         if !moves
-          damage=@currentEnemy.damage
-          @currentStation.setPendingDamage(damage)
+          damage=enemy.damage
+          station.setPendingDamage(damage)
           combatResult=CombatResult::ENEMYWINS
         else
-          @currentStation.move
+          station.move
           combatResult=CombatResult::STATIONESCAPES
         end
       else
-        aLoot=@currentEnemy.loot
-        @currentStation.loot(aLoot)
+        aLoot=enemy.loot
+        station.loot(aLoot)
         combatResult=CombatResult::STATIONWINS
       end
       
@@ -135,9 +139,9 @@ module Deepspace
         @spaceStations = Array.new
         dealer = CardDealer.instance
         
-        for i in (0...names.size)
+        for i in (1..names.length)
           supplies=dealer.nextSuppliesPackage
-          station=SpaceStation.new(names[i],supplies)
+          station=SpaceStation.new(names[i-1],supplies)
           nh=@dice.initWithNHangars
           nw=@dice.initWithNWeapons
           ns=@dice.initWithNShields
@@ -146,7 +150,7 @@ module Deepspace
           @spaceStations.push(station)
         end
         
-        @currentStationIndex = @dice.whoStarts(names.size)
+        @currentStationIndex = @dice.whoStarts(names.length)
         @currentStation=@spaceStations[@currentStationIndex]
         @currentEnemy=dealer.nextEnemy
         @gameState.next(@turns, @spaceStations.size)
@@ -160,8 +164,8 @@ module Deepspace
         stationState =@currentStation.validState
         
         if stationState
-          @currentStationIndex=(@currentStationIndex+1) % @spaceStations.size
-          @turns+=1
+          @currentStationIndex=(@currentStationIndex+1)%(@spaceStations.size)
+          @turns=@turns+1
           
           @currentStation = @spaceStations[@currentStationIndex]
           @currentStation.cleanUpMountedItems
