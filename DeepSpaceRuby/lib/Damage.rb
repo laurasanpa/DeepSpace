@@ -52,9 +52,9 @@ module Deepspace
     
     def hasNoEffect
       if @nWeapons==-1
-        return (@nShields=0 && @weapons.length==0)
+        return (@nShields==0 && @weapons.length==0)
       else
-        return (@nWeapons=0 && @nShields=0)
+        return (@nWeapons==0 && @nShields==0)
       end
     end
     
@@ -66,10 +66,10 @@ module Deepspace
           #Si damage es específico
       if @weapons != nil
         auxweapons=[]
-        for i  in 0..@weapons.size-1
+        for i  in 0...@weapons.size
           auxweapons.push(@weapons[i])
         end
-        h=[]
+        h=Array.new
         #Sacamos el vector intersección
         for j in 0...w.size
           if arrayContainsType(auxweapons,w[j].type)!=-1
@@ -78,7 +78,7 @@ module Deepspace
           end
         end
         #Creamos nuevo damage
-        Damage.newSpecificWeapons(auxweapons,[@nShields, s.size].min)
+        Damage.newSpecificWeapons(h,[@nShields, s.size].min)
       else 
         Damage.newNumericWeapons([@nWeapons, w.size].min,[@nShields, s.size].min)
       end
@@ -86,7 +86,7 @@ module Deepspace
     private
     
     def arrayContainsType(w,t)
-      if w.find_index(t)== nil
+      if w.index(t)== nil
         return -1
       else 
         return w.index(t)

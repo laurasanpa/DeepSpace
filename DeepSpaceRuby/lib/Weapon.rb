@@ -36,7 +36,7 @@ module Deepspace
     end
     
     def to_s
-      @name + " " + @type.to_s + " " + @uses.to_s
+      "\n Name: #{@name} Type: #{@type} Uses: #{@uses}"
     end
     
     def getUIversion

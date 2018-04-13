@@ -8,9 +8,9 @@ module Deepspace
   
   class Hangar
     
-    attr_reader:maxElements
-    attr_reader:shieldBoosters
-    attr_reader:weapons
+    attr_reader :maxElements
+    attr_reader :shieldBoosters
+    attr_reader :weapons
    
     
    def initialize(n)
@@ -72,7 +72,7 @@ module Deepspace
    end
    
    def to_s
-      "\n Elementos max: #{@maxElements}\n ShieldBoosters: #{@shieldBoosters}\n Weapons: #{@weapons}"
+      "\n Elementos max: #{@maxElements}\t"
    end
    
    private

@@ -4,17 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Damage.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Command.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Loot.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/SpaceStation.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/GameState.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/HangarToUI.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Dice.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/PlayWithUI.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Controller.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/GameStateController.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/GameUniverse.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Command.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/ShotResult.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Weapon.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDealer.rb</file>
             <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Hangar.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/Loot.rb</file>
-            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/TextUI.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/ShieldBooster.rb</file>
+            <file>file:/home/laura/Escritorio/Uni/PDOO/DeepSpace/DeepSpaceRuby/lib/CardDeck.rb</file>
         </group>
     </open-files>
 </project-private>

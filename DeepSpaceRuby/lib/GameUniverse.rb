@@ -145,7 +145,7 @@ module Deepspace
           nh=@dice.initWithNHangars
           nw=@dice.initWithNWeapons
           ns=@dice.initWithNShields
-          l=Loot.new(0,nh,nw,ns,0)
+          l=Loot.new(0,nw,ns,nh,0)
           station.loot(l)
           @spaceStations.push(station)
         end

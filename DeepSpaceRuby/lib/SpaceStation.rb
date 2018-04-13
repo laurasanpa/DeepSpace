@@ -51,6 +51,7 @@ module Deepspace
           if @weapons[i].uses != 0
             auxweapons.push(@weapons[i])
           end
+          i+=1
         end
       end
       @weapons=auxweapons
@@ -59,9 +60,10 @@ module Deepspace
       
       if @shieldBoosters != nil
         while j< @shieldBoosters.size
-          if @shieldBoosters[i].uses != 0
-            auxshieldboosters.size(@shieldBoosters[i])
+          if @shieldBoosters[j].uses != 0
+            auxshieldboosters.push(@shieldBoosters[j])
           end
+          j+=1
         end
       end
       @shieldBoosters=auxshieldboosters
