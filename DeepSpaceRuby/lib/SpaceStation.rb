@@ -33,7 +33,7 @@ module Deepspace
       @shieldPower=supplies.shieldPower
       @weapons=Array.new
       @shieldBoosters=Array.new
-      @hangar=nil
+      @hangar=Hangar.new(0)
       @pendingDamage=nil
     end
     
@@ -159,9 +159,7 @@ module Deepspace
     end
     
     def receiveHangar(h)
-      if @hangar==nil
         @hangar=h
-      end
     end
     
     def receiveShieldBooster(s)
