@@ -22,16 +22,8 @@ public class SpaceStation {
     private Damage pendingDamage;
     private ArrayList<Weapon> weapons;
     private ArrayList<ShieldBooster> shieldBoosters;
-    Hangar hangar;
+    private Hangar hangar;
     
-    private void assignFuelValue(float f){
-        if (f<=MAXFUEL)
-            fuelUnits=f;
-    }
-    
-    private void cleanPendingDamage(){
-        pendingDamage=null;
-    }
     
     SpaceStation(String n,SuppliesPackage supplies){
         name=n;
@@ -43,6 +35,48 @@ public class SpaceStation {
         shieldBoosters=null;
         hangar=null;
     }
+    
+    private void assignFuelValue(float f){
+        if (f<=MAXFUEL)
+            fuelUnits=f;
+    }
+    
+    private void cleanPendingDamage(){
+        pendingDamage=null;
+    }
+    
+    public void cleanUpMountedItems(){
+        ArrayList<Weapon> aux= new ArrayList<Weapon>();
+        for(int i=0; i<weapons.size();i++){
+            if(weapons.get(i).getUses()!=0)
+                aux.add(weapons.get(i));
+        }
+        weapons = aux;
+        
+        ArrayList<ShieldBooster> aux2 = new ArrayList<ShieldBooster>();
+        for(int i=0; i<shieldBoosters.size();i++){
+            if(shieldBoosters.get(i).getUses()!=0)
+                aux2.add(shieldBoosters.get(i));
+        }
+        
+        shieldBoosters = aux2;
+    }
+    
+    public void discardWeaponInHangar(int i){
+        if(hangar !=null)
+            hangar.removeWeapon(i);
+    }
+    
+    public void discardShieldBoosterInHangar(int i){
+        if (hangar != null)
+            hangar.removeShieldBooster(i);
+    }
+    
+    public void discardHangar(){
+        if (hangar != null)
+            hangar = null;
+    }
+    
 
     public float getAmmoPower() {
         return ammoPower;
@@ -79,6 +113,27 @@ public class SpaceStation {
     public Hangar getHangar() {
         return hangar;
     }
+     
+    public float getSpeed(){
+        return fuelUnits/MAXFUEL;
+    }
+    
+    
+    public void mountWeapon(int i){
+        if (hangar!= null){
+             Weapon h = hangar.removeWeapon(i);    
+            if(h!=null)
+                weapons.add(h);
+        }
+    }
+    
+    public void mountShieldBooster(int i){
+        if (hangar!= null){
+            ShieldBooster h = hangar.removeShieldBooster(i);    
+             if(h!=null)
+                shieldBoosters.add(h);
+        }   
+    }
     
     public boolean receiveWeapon(Weapon w){
         if (hangar != null){
@@ -97,11 +152,6 @@ public class SpaceStation {
     public void receiveHangar(Hangar h){
         if (hangar == null)
             hangar = h;
-    } 
-    
-    public void discardHangar(){
-        if (hangar != null)
-            hangar = null;
     }
     
     public void receiveSupplies(SuppliesPackage s){
@@ -114,37 +164,7 @@ public class SpaceStation {
         pendingDamage=d;
     }
     
-    public void mountWeapon(int i){
-        if (hangar!= null){
-        Weapon h = hangar.removeWeapon(i);    
-            if(h!=null)
-                weapons.add(h);
-        }
-        
-    }
-    
-    public void mountShieldBooster(int i){
-    if (hangar!= null){
-    ShieldBooster h = hangar.removeShieldBooster(i);    
-        if(h!=null)
-            shieldBoosters.add(h);
-        }
-    }
-    
-    public void discardWeaponInHangar(int i){
-        if(hangar !=null)
-            hangar.removeWeapon(i);
-    }
-    
-    public void discardShieldBoosterInHangar(int i){
-        if (hangar != null)
-            hangar.removeShieldBooster(i);
-    }
-    
-    public float getSpeed(){
-        return fuelUnits/MAXFUEL;
-    }
-    
+   
     public void move(){
         fuelUnits-= getSpeed();
     }
@@ -153,22 +173,7 @@ public class SpaceStation {
         return pendingDamage== null;
     }
     
-    public void cleanUpMountedItems(){
-        ArrayList<Weapon> aux= new ArrayList<Weapon>();
-        for(int i=0; i<weapons.size();i++){
-            if(weapons.get(i).getUses()!=0)
-                aux.add(weapons.get(i));
-        }
-        weapons = aux;
-        
-        ArrayList<ShieldBooster> aux2 = new ArrayList<ShieldBooster>();
-        for(int i=0; i<shieldBoosters.size();i++){
-            if(shieldBoosters.get(i).getUses()!=0)
-                aux2.add(shieldBoosters.get(i));
-        }
-        
-        shieldBoosters = aux2;
-    }
+    
     
     public SpaceStationToUI getUIversion(){
         return new SpaceStationToUI(this);

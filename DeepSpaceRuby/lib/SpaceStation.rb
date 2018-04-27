@@ -202,7 +202,7 @@ module Deepspace
       end
     end
     
-    def loot(loot)
+    def setLoot(loot)
       dealer = CardDealer.instance
       h=loot.nHangars
       if h>0

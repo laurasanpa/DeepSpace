@@ -9,7 +9,7 @@ module Deepspace
        @NHANGARSPROB=0.25
        @NSHIELDSPROB=0.25
        @NWEAPONSPROB=0.33
-       @FIRSTSHOTPROB=0.5
+       @FIRSTSHOTPROB=0.50
        
        @generator=Random.new()
 

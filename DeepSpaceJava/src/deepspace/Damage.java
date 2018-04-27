@@ -32,26 +32,32 @@ public class Damage {
         weapons=d.weapons;
     }
     
-    DamageToUI getUIversion(){
-        return new DamageToUI(this);
-    }
     
     public Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
         throw new UnsupportedOperationException();
+        // No merece implementarlo hasta la 4 porque hay que usar herencia. 
     }
     
     private int arrayContainsType(ArrayList<Weapon> w, WeaponType t){
        return w.indexOf(t); 
     }
     
-    public boolean hasNoEffect(){
-        if(nWeapons==-1){
-            return(nShields==0 && weapons == null);
-        } else{
-            return (nShields==0 && nWeapons == 0);
-        }
+    void discardShieldBooster(){
+     if(nShields >0)
+        nShields-=1;
     }
-
+    
+    void discardWeapon(Weapon w){
+        if (nWeapons == -1)
+          weapons.remove(w.getType());
+        else if(nWeapons>0)
+          nWeapons -=1;
+    }
+  
+    DamageToUI getUIversion(){
+        return new DamageToUI(this);
+    }
+    
     public int getNShields() {
         return nShields;
     }
@@ -62,6 +68,14 @@ public class Damage {
 
     public ArrayList<WeaponType> getWeapons() {
         return weapons;
+    }
+      
+    public boolean hasNoEffect(){
+        if(nWeapons==-1){
+            return(nShields==0 && weapons.size()==0);
+        } else{
+            return (nShields==0 && nWeapons == 0);
+        }
     }
 
     @Override

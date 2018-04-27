@@ -34,23 +34,16 @@ public class EnemyStarShip {
        loot =e.loot;
        damage=e.damage;
    }
-   EnemyToUI getUIversion(){
-       return new EnemyToUI(this);
-   }
-   
-   public float protection(){
-       return shieldPower;
-   }
    
    public float fire(){
        return ammoPower;
    }
-
+   
     public float getAmmoPower() {
         return ammoPower;
     }
-
-    public String getName() {
+    
+     public String getName() {
         return name;
     }
 
@@ -66,12 +59,20 @@ public class EnemyStarShip {
         return damage;
     }
    
-   public ShotResult receiveShot(float shot){
-       if(shot>shieldPower){
-           return ShotResult.DONOTRESIST;
-       } else
-           return ShotResult.RESIST;
-   }
+    EnemyToUI getUIversion(){
+       return new EnemyToUI(this);
+    }
+   
+    public float protection(){
+       return shieldPower;
+    }
+ 
+    public ShotResult receiveShot(float shot){
+        if(shot>shieldPower){
+            return ShotResult.DONOTRESIST;
+        } else
+            return ShotResult.RESIST;
+    }
 
     @Override
     public String toString() {

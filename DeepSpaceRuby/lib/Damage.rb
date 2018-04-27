@@ -38,10 +38,9 @@ module Deepspace
     def discardWeapon(w)
         if @nWeapons == -1
           @weapons.delete(w.type)
-        else if @nWeapons>0
+        elsif @nWeapons>0
           @nWeapons = @nWeapons-1  
         end
-       end
     end
     
     def discardShieldBooster

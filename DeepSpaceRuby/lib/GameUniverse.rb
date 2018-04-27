@@ -75,7 +75,7 @@ module Deepspace
         end
       else
         aLoot=enemy.loot
-        station.loot(aLoot)
+        station.setLoot(aLoot)
         combatResult=CombatResult::STATIONWINS
       end
       
@@ -146,7 +146,7 @@ module Deepspace
           nw=@dice.initWithNWeapons
           ns=@dice.initWithNShields
           l=Loot.new(0,nw,ns,nh,0)
-          station.loot(l)
+          station.setLoot(l)
           @spaceStations.push(station)
         end
         
