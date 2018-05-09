@@ -5,7 +5,7 @@
  */
 package deepspace;
 
-class SuppliesPackage {
+class SuppliesPackage implements Copyable<SuppliesPackage>{
     
     private float ammoPower;
     private float fuelUnits;
@@ -57,6 +57,11 @@ class SuppliesPackage {
     @Override
     public String toString() {
         return "SuppliesPackage{" + "ammoPower=" + ammoPower + ", fuelUnits=" + fuelUnits + ", shieldPower=" + shieldPower + '}';
+    }
+
+    @Override
+    public SuppliesPackage copy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

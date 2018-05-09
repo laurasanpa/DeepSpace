@@ -11,7 +11,7 @@
  */
 package deepspace;
 
-class Weapon {
+class Weapon implements Copyable<Weapon>{
     
     private String name;
     private WeaponType type;
@@ -71,6 +71,11 @@ class Weapon {
     
     public WeaponToUI getUIversion(){
         return new WeaponToUI(this);
+    }
+
+    @Override
+    public Weapon copy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

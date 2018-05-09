@@ -9,7 +9,7 @@ package deepspace;
  *
  * @author samuel y Laura
  */
-public class EnemyStarShip {
+public class EnemyStarShip implements Copyable<EnemyStarShip> {
     
     private float ammoPower;
     String name;
@@ -77,6 +77,11 @@ public class EnemyStarShip {
     @Override
     public String toString() {
         return "EnemyStarShip{" + "name=" + name + ", shieldPower=" + shieldPower + ", loot=" + loot + ", damage=" + damage + '}';
+    }
+
+    @Override
+    public EnemyStarShip copy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

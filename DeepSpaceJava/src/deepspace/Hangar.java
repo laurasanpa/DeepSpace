@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author laura
  */
-public class Hangar {
+public class Hangar implements Copyable<Hangar>{
     private int maxElements;
     private ArrayList<ShieldBooster> shieldBoosters;
     private ArrayList<Weapon> weapons;
@@ -75,6 +75,11 @@ public class Hangar {
     @Override
     public String toString() {
         return "Hangar{" + "maxElements=" + maxElements + ", shieldBoosters=" + shieldBoosters + ", weapons=" + weapons + '}';
+    }
+
+    @Override
+    public Hangar copy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

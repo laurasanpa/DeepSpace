@@ -6,7 +6,7 @@
 
 package deepspace;
 
-class ShieldBooster {
+class ShieldBooster implements Copyable<ShieldBooster> {
     
     // Definición de atributos
     private String name;
@@ -78,6 +78,11 @@ class ShieldBooster {
     @Override
     public String toString() {
         return "ShieldBooster{" + "name=" + name + ", boost=" + boost + ", uses=" + uses + '}';
+    }
+
+    @Override
+    public ShieldBooster copy() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
