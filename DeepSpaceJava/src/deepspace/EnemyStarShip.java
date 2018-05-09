@@ -9,7 +9,7 @@ package deepspace;
  *
  * @author samuel y Laura
  */
-public class EnemyStarShip implements Copyable<EnemyStarShip> {
+public class EnemyStarShip implements SpaceFighter {
     
     private float ammoPower;
     String name;
@@ -79,10 +79,7 @@ public class EnemyStarShip implements Copyable<EnemyStarShip> {
         return "EnemyStarShip{" + "name=" + name + ", shieldPower=" + shieldPower + ", loot=" + loot + ", damage=" + damage + '}';
     }
 
-    @Override
-    public EnemyStarShip copy() {
-        return new EnemyStarShip(this);
-    }
+
     
     
 }

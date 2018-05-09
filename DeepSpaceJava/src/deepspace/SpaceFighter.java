@@ -10,5 +10,8 @@ package deepspace;
  * @author samuel
  */
 public interface SpaceFighter {
+    public float fire();
+    public float protection();
+    public ShotResult receiveShot(float shot);
     
 }

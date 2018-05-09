@@ -14,6 +14,8 @@ class Loot {
     private int nShields;
     private int nHangars;
     private int nMedals;
+    private boolean getEfficient;
+    private boolean spaceCity;
 /**
  * Constructor
  * @param nSupplies
@@ -22,16 +24,20 @@ class Loot {
  * @param nHangars
  * @param nMedals 
  */ 
-    public Loot(int supplies , int weapons , int shields , int hangars , int medals){
+    public Loot(int supplies , int weapons , int shields , int hangars , int medals, boolean ef, boolean city){
         
         nSupplies=supplies;
         nWeapons=weapons;
         nShields=shields;
         nHangars=hangars;
         nMedals=medals;
-        
+        getEfficient = ef;
+        spaceCity = city;
     }
     
+    public boolean getEfficient(){
+        return getEfficient;
+    }
 /**
  * getNSupplies: devuelve el número de supplies de una instancia del botín
  * @return nSupplies
@@ -80,5 +86,9 @@ class Loot {
     LootToUI getUIversion(){
         return new LootToUI(this);
     } 
+    
+    public boolean spaceCity(){
+        return spaceCity;
+    }
     
 }

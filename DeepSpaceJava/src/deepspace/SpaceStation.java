@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author samuel y Laura
  */
-public class SpaceStation {
+public class SpaceStation implements SpaceFighter{
     
     private static int MAXFUEL = 100;
     private static double SHIELDLOSSPERUNIT = 0.1;
@@ -33,6 +33,16 @@ public class SpaceStation {
         pendingDamage=null;
         hangar=null;
     }
+    
+    public SpaceStation(SpaceStation station){
+       name=station.name;
+       ammoPower = station.ammoPower;
+       fuelUnits=station.fuelUnits;
+       shieldPower=station.shieldPower;
+       pendingDamage=station.pendingDamage;
+       hangar=station.hangar;
+    }
+
     
     private void assignFuelValue(float f){
         if (f<=MAXFUEL)
@@ -238,7 +248,7 @@ public class SpaceStation {
         }
     }
     
-    public void setLoot(Loot loot){
+    public Transformation setLoot(Loot loot){
         CardDealer dealer = CardDealer.getInstance();
         int h = loot.getNHangars();
         
@@ -266,6 +276,13 @@ public class SpaceStation {
         
         int medals=loot.getNMedals();
         nMedals+=medals;
+        
+        if (loot.getEfficient()==true)
+            return Transformation.GETEFFICIENT;
+        else if(loot.spaceCity()==true)
+            return Transformation.SPACECITY;
+        else 
+            return Transformation.NOTRANSFORM;
         
     }
     

@@ -9,6 +9,11 @@ package deepspace;
  *
  * @author samuel
  */
-public class BetaPowerEfficientSpaceStation {
-    
+public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
+     static double EXTRAEFFICIENCY=1.20;
+     
+     public BetaPowerEfficientSpaceStation(SpaceStation station){
+         super(station);
+     }
+     
 }
