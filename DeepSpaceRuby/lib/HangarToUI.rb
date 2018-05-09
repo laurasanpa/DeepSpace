@@ -11,7 +11,7 @@ class HangarToUI
   def initialize(h) 
     @weapons=Array.new()
     @shieldBoosters=Array.new()
-    @maxElements=h
+    @maxElements=h.maxElements
     
     for w in h.weapons do
       @weapons.push(w.getUIversion())
