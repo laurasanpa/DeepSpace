@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Hangar implements Copyable<Hangar>{
     private int maxElements;
-    private ArrayList<ShieldBooster> shieldBoosters;
-    private ArrayList<Weapon> weapons;
+    private ArrayList<ShieldBooster> shieldBoosters= new ArrayList();
+    private ArrayList<Weapon> weapons = new ArrayList();
     
     Hangar(int capacity){
         maxElements=capacity;
@@ -65,11 +65,15 @@ public class Hangar implements Copyable<Hangar>{
         return weapons;
     } 
     public Weapon removeWeapon(int w){
+        if(w>=0 && w<weapons.size())
         return weapons.remove(w);
+        return null;
     }   
     
     public ShieldBooster removeShieldBooster(int s){
+        if(s>=0 && s<shieldBoosters.size())
         return shieldBoosters.remove(s);
+        return null;
     }
 
     @Override
@@ -79,7 +83,7 @@ public class Hangar implements Copyable<Hangar>{
 
     @Override
     public Hangar copy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return new Hangar(this);
     }
     
 

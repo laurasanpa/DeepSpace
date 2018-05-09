@@ -15,16 +15,16 @@ public class GameUniverse {
     private int turns;
     private Dice dice = new Dice();
     private SpaceStation currentStation;
-    private ArrayList<SpaceStation> spaceStations = new ArrayList();
+    private ArrayList<SpaceStation> spaceStations;
     private EnemyStarShip currentEnemy;
     private GameStateController gameState = new GameStateController();
     
-    GameUniverse(){
+    public GameUniverse(){
         currentEnemy=null;
         currentStation=null;
         gameState= new GameStateController();
         dice = new Dice();
-        spaceStations = null;
+        spaceStations = new ArrayList();
         currentStationIndex=0;
         turns=0;
     }
@@ -67,18 +67,63 @@ public class GameUniverse {
     }
     
     CombatResult combat(SpaceStation station, EnemyStarShip enemy){
-        throw new UnsupportedOperationException();
+        
+        GameCharacter ch = dice.firstShot();
+        boolean enemyWins;
+        float fire;
+        ShotResult result;
+        CombatResult combatResult; 
+        if ( ch == GameCharacter.ENEMYSTARSHIP ) {
+            fire = enemy.fire();
+            result = station.receiveShot(fire);
+
+            if( result == ShotResult.RESIST){
+                fire = station.fire();
+                result = enemy.receiveShot(fire);
+                enemyWins = (result == ShotResult.RESIST);
+            } else
+                 enemyWins = true;
+        } else {
+            fire = station.fire();
+            result = enemy.receiveShot(fire);
+            enemyWins = (result == ShotResult.RESIST);
+}
+        
+    if(enemyWins) {
+         float s = station.getSpeed();
+         boolean moves = dice.spaceStationMoves(s);
+
+         if (!moves) {
+             Damage damage = enemy.getDamage();
+             station.setPendingDamage(damage);
+             combatResult = CombatResult.ENEMYWINS;
+         } else {
+             station.move();
+             combatResult = CombatResult.STATIONESCAPES;
+         }            
+     } else {
+        Loot aLoot = enemy.getLoot();
+        station.setLoot(aLoot);
+        combatResult= CombatResult.STATIONWINS;
+    } 
+        gameState.next(turns,spaceStations.size());
+        return combatResult;
     }
+ 
     
     public CombatResult combat(){
-        throw new UnsupportedOperationException();
+        GameState state = gameState.getState();
+        if(state==GameState.BEFORECOMBAT|| state == GameState.INIT){
+            return combat(currentStation,currentEnemy);
+        }else
+            return CombatResult.NOCOMBAT;
     }
     
     public GameState getState(){
         return gameState.getState();
     }
     
-    public GameUniverseToUI getUIVersion(){
+    public GameUniverseToUI getUIversion(){
         return new GameUniverseToUI(currentStation, currentEnemy);
     }
     

@@ -5,6 +5,9 @@
  */
 package deepspace;
 import java.util.ArrayList;
+import java.util.Collections;
+        
+
 /**
  *
  * @author laura
@@ -34,12 +37,45 @@ public class Damage {
     
     
     public Damage adjust(ArrayList<Weapon> w, ArrayList<ShieldBooster> s){
-        throw new UnsupportedOperationException();
-        // No merece implementarlo hasta la 4 porque hay que usar herencia. 
+       /* if(weapons!=null){
+            ArrayList<WeaponType> auxweapons= new ArrayList<WeaponType>();
+            auxweapons.addAll(weapons);
+            ArrayList<WeaponType> h= new ArrayList<WeaponType>();
+            for(int i=0; i<w.size(); ++i){
+                if(arrayContainsType(auxweapons, w.get(i).getType())!=-1){
+                    h.add(auxweapons.get(arrayContainsType(auxweapons, w.get(i).getType())));
+                    auxweapons.remove(arrayContainsType(auxweapons, w.get(i).getType()));
+                }
+            }
+            Damage d = new Damage(h, java.lang.Math.min(nShields,s.size()));
+            return d;
+        }else{
+            Damage d = new Damage( java.lang.Math.min(nWeapons,w.size()),java.lang.Math.min(nShields,s.size()));
+            return d;
+        } */
+       
+       if (nWeapons == -1) {//Entonces es específico
+          ArrayList<WeaponType> aux = new ArrayList<WeaponType>();
+          ArrayList<WeaponType> res = new ArrayList<WeaponType>();
+          
+        for (Weapon elemento:w)
+            aux.add(elemento.getType());
+               
+        WeaponType wtypes [] = WeaponType.values();
+        for(int i = 0; i < wtypes.length; i+=1) {
+            int min = Math.min(Collections.frequency(aux, wtypes[i]),Collections.frequency(weapons, wtypes[i]));
+            for(int j = 0; j < min; j+=1)
+                res.add(wtypes[i]);
+        } 
+        
+        return new Damage(res,Math.min(nShields,s.size()));
+        } else //Entonces es numérico
+           return new Damage(Math.min(nWeapons,w.size()), Math.min(nShields,s.size()));
+       
     }
     
-    private int arrayContainsType(ArrayList<Weapon> w, WeaponType t){
-       return w.indexOf(t); 
+    private int arrayContainsType(ArrayList<WeaponType> w, WeaponType t){
+       return w.indexOf(t);
     }
     
     void discardShieldBooster(){

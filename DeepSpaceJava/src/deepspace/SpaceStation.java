@@ -20,8 +20,8 @@ public class SpaceStation {
     private int nMedals;
     private float shieldPower;
     private Damage pendingDamage;
-    private ArrayList<Weapon> weapons;
-    private ArrayList<ShieldBooster> shieldBoosters;
+    private ArrayList<Weapon> weapons = new ArrayList();
+    private ArrayList<ShieldBooster> shieldBoosters = new ArrayList();
     private Hangar hangar;
     
     
@@ -31,8 +31,6 @@ public class SpaceStation {
         fuelUnits=supplies.getFuelUnits();
         shieldPower=supplies.getShieldPower();
         pendingDamage=null;
-        weapons=null;
-        shieldBoosters=null;
         hangar=null;
     }
     
@@ -161,7 +159,7 @@ public class SpaceStation {
     }
     
     public void setPendingDamage(Damage d){
-        pendingDamage=d;
+        pendingDamage=d.adjust(weapons,shieldBoosters);
     }
     
    
@@ -170,7 +168,7 @@ public class SpaceStation {
     }
     
     public boolean validState(){
-        return pendingDamage== null;
+        return (pendingDamage== null ||pendingDamage.hasNoEffect());
     }
     
     
