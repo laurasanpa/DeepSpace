@@ -24,13 +24,24 @@ class Loot {
  * @param nHangars
  * @param nMedals 
  */ 
-    public Loot(int supplies , int weapons , int shields , int hangars , int medals, boolean ef, boolean city){
+    public Loot(int supplies , int weapons , int shields , int hangars , int medals){
         
         nSupplies=supplies;
         nWeapons=weapons;
         nShields=shields;
         nHangars=hangars;
         nMedals=medals;
+        getEfficient=false;
+        spaceCity=false;
+
+    }
+    
+    public Loot(int supplies , int weapons , int shields , int hangars , int medals, boolean ef, boolean city){
+        nSupplies=supplies;
+        nWeapons=weapons;
+        nShields=shields;
+        nHangars=hangars;
+        nMedals=medals;       
         getEfficient = ef;
         spaceCity = city;
     }

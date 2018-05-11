@@ -41,5 +41,10 @@ public class NumericDamage extends Damage {
     @Override
     public boolean hasNoEffect(){
         return (nShields==0 && nWeapons == 0);
-    }        
+    }    
+    
+    @Override
+    NumericDamageToUI getUIversion(){
+        return new NumericDamageToUI(this);
+    }    
 }

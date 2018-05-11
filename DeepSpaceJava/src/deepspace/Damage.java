@@ -47,9 +47,7 @@ public abstract class  Damage {
      abstract void discardWeapon(Weapon w);
     
   
-    DamageToUI getUIversion(){
-        return new DamageToUI(this);
-    }
+    abstract DamageToUI getUIversion();
     
     public int getNShields() {
         return nShields;

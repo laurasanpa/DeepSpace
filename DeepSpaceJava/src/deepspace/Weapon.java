@@ -73,10 +73,8 @@ class Weapon implements CombatElement{
         return new WeaponToUI(this);
     }
 
-    @Override
-    public Weapon copy() {
-        return new Weapon(this);
-    }
+
+
     
     
     

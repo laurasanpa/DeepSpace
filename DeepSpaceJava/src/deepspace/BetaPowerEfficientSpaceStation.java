@@ -16,4 +16,9 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
          super(station);
      }
      
+    public float fire(){
+        return super.fire()*EFFICIENCYFACTOR;
+    }
+    
+
 }

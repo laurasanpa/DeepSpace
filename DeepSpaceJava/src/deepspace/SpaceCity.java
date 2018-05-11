@@ -18,7 +18,33 @@ public class SpaceCity extends SpaceStation {
     SpaceCity(SpaceStation base, ArrayList<SpaceStation> rest){
         super(base);
         collaborators = rest;
+        this.base = base;
     }
     
+    public ArrayList<SpaceStation> getCollaborators(){
+        return collaborators;
+    }
     
+    public float fire(){
+        float fire=0;
+        fire += super.fire();
+        for(int i=0; i<collaborators.size();++i){
+            fire += collaborators.get(i).fire();
+        }
+        return fire;
+    }
+    
+    public float protection(){
+        float pro=0;
+        pro += super.protection();
+        for(int i=0; i<collaborators.size();++i){
+            pro += collaborators.get(i).protection();
+        }
+        return pro;  
+    }
+    
+    public Transformation setLoot(Loot loot){
+           super.setLoot(loot);
+           return Transformation.NOTRANSFORM;
+    }
 }

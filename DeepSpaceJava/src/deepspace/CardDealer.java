@@ -177,7 +177,7 @@ class CardDealer {
         mediumSpecificDamage0=new SpecificDamage(new ArrayList(Arrays.asList(WeaponType.LASER,
                                                                         WeaponType.MISSILE)),2);  
         
-        enemies.add(new EnemyStarShip("Enemigo fácil -1",0,0,regularLoot0,lowDamage0));
+       enemies.add(new EnemyStarShip("Enemigo fácil -1",0,0,regularLoot0,lowDamage0));
         enemies.add(new EnemyStarShip("Enemigo fácil -1",0,10,badLoot,lowDamage0));
         enemies.add(new EnemyStarShip("Enemigo fácil -1",10,0,badLoot,lowDamage0));
         enemies.add(new EnemyStarShip("Enemigo fácil 0",10,10,badLoot,lowDamage0));

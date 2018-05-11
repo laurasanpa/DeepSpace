@@ -54,5 +54,9 @@ public class SpecificDamage extends Damage {
         return(nShields==0 && weapons.size()==0);
     }
     
+    SpecificDamageToUI getUIversion(){
+        return new SpecificDamageToUI(this);
+    }
+    
     
 }

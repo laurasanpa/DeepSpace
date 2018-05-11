@@ -10,9 +10,22 @@ package deepspace;
  * @author samuel
  */
 public class PowerEfficientSpaceStation extends SpaceStation {
-    static double EFFICIENCYFACTOR=1.10;
+    static float EFFICIENCYFACTOR=(float) 1.10;
     
     public PowerEfficientSpaceStation(SpaceStation station){
         super (station);
+    }
+    
+    public float fire(){
+        return super.fire()*EFFICIENCYFACTOR;
+    }
+    
+    public float protection(){
+        return super.protection()*EFFICIENCYFACTOR;
+    }
+    
+    public Transformation setLoot(Loot loot){
+           super.setLoot(loot);
+           return Transformation.NOTRANSFORM;
     }
 }

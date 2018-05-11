@@ -70,11 +70,16 @@ public class TextUI {
                 break;
               case STATIONWINS :
                 pause ("\n Has GANADO el combate. Disfruta de tu botín.");
+                
                 if (controller.haveAWinner()) {
                     pause ("\n\n **** **** ****  HAS GANADO LA PARTIDA  **** **** ****\n");
+                  
                     System.exit (0);
                 }
                 break;
+              case STATIONWINSANDCONVERTS :
+                  String name = gameUI.getCurrentStation().getName();
+                  pause ("\n Has GANADO el combate. Disfruta de tu botín. Ahora eres " + name);
           }
           do {   // Until a valid next turn
               System.out.println (showStation (gameUI.getCurrentStation()));
