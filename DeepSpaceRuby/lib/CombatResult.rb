@@ -4,6 +4,7 @@ module Deepspace
     NOCOMBAT =:nocombat
     STATIONESCAPES =:stationeLaurascapes
     STATIONWINS =:stationwins
+    STATIONWINSANDCONVERTS=:stationwinsandconverts
   end
 
 end
