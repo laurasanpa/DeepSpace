@@ -10,14 +10,14 @@ package deepspace;
  * @author samuel
  */
 public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
-     static double EXTRAEFFICIENCY=1.20;
+     static float EXTRAEFFICIENCY=(float)1.20;
      
      public BetaPowerEfficientSpaceStation(SpaceStation station){
          super(station);
      }
      
     public float fire(){
-        return super.fire()*EFFICIENCYFACTOR;
+        return super.fire()*EXTRAEFFICIENCY;
     }
     
 

@@ -5,8 +5,16 @@
         <group>
             <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/deepspace/TestP1.java</file>
             <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/deepspace/CardDealer.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/main/PlayGraphics.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/View/View.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/controller/Controller.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/View/GUI/Names.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/main/Play.java</file>
             <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/deepspace/SpaceStation.java</file>
             <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/deepspace/BetaPowerEfficientSpaceStation.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/controller/ControllerText.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/View/GUI/MainView.java</file>
+            <file>file:/home/samuel/Uni/2º/2C/PDOO/Practicas/DeepSpace/DeepSpaceJava/src/main/PlayWithUI.java</file>
         </group>
     </open-files>
 </project-private>
