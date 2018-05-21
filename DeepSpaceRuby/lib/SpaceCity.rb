@@ -4,15 +4,25 @@
 module Deepspace
   require_relative'Loot'
   require_relative'Transformation'
+  require_relative 'SpaceCityToUI'
   
 class SpaceCity < SpaceStation
   attr_reader :collaborators
   
   #ss es tipo SpaceStation, rest array de spaceStation
   def initialize(ss,rest)
-    super(ss)
-    @collaborators=rest
+    sup=SuppliesPackage.new(ss.ammoPower,ss.fuelUnits, ss.shieldPower)
+    super(ss.name,sup)
+    @collaborators = Array.new
+    for i in (0...rest.size)
+      @collaborators.push(rest[i])
+    end
+    
     @base=ss
+  end
+  
+  def getUIversion
+    SpaceCityToUI.new(self)
   end
   
   def fire

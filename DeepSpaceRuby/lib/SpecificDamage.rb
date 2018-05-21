@@ -8,9 +8,13 @@ module Deepspace
     
     attr_reader:weapons
     
-    def initialize(nshields,weapons)
+    def initialize(weapons,nshields)
       super(nshields)
-      @weapons=weapons
+      @weapons = Array.new
+      for i in (0...weapons.size)
+        @weapons.push(weapons[i])
+      end
+      
     end
     
     def adjust(w,s)
@@ -30,7 +34,7 @@ module Deepspace
     end
     
     def copy()
-    SpecificDamage.new(@nshields,@weapons)
+    SpecificDamage.new(@weapons,@nshields)
   end
   
     def discardWeapon(w)
@@ -42,7 +46,7 @@ module Deepspace
     end
     
     def hasNoEffect
-      return (@nShields==0 && @weapons.length==0)
+      return (@nShields==0 && @weapons.size==0)
     end
   
     private

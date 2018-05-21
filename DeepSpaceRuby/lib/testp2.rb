@@ -28,12 +28,12 @@ module Testp2
       s1 = Deepspace::ShieldBooster.new("shield1", 5, 6)
       s2 = Deepspace::ShieldBooster.new("shield2", 3, 0) 
       
-      d1 = Deepspace::Damage.newNumericWeapons(2,3)
+      d1 = Deepspace::NumericDamage.new(2,3)
       ws2 = Array.new
       ws2.push(Deepspace::WeaponType::LASER)
       ws2.push(Deepspace::WeaponType::LASER)
 
-      d2 = Deepspace::Damage.newSpecificWeapons(ws2, 1)
+      d2 = Deepspace::SpecificDamage.new(ws2, 1)
        
       ws1 = Array.new
       ws1.push(w1)
@@ -153,7 +153,7 @@ module Testp2
       puts "Valid state: #{station1.validState}"
     
 
-    
+    a = PowerEfficientSpaceStation.new(station1)
     
     end
   end

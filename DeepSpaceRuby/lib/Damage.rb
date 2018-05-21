@@ -3,16 +3,14 @@
 # and open the template in the editor.
 module Deepspace
   require_relative 'DamageToUI'
-  require_relative 'WeaponType'
+ 
   
   class Damage
     
     attr_reader:nShields
     
     
-    def initialize(w,s,wl)
-      @nShields=s
-    end
+    
     
    
     def copy()
@@ -46,8 +44,10 @@ module Deepspace
        "Abstracto"
     end
 
-    private_method :new
-    
+    protected
+    def initialize(s)
+      @nShields=s
+    end
    
   end
 end

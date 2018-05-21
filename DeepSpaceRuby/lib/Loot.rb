@@ -16,12 +16,18 @@ module Deepspace
 
     attr_reader:nMedals
     
-    def initialize(supplies, weapons, shields, hangars, medals)
+    attr_reader:efficient
+    
+    attr_reader:spaceCity
+    
+    def initialize(supplies, weapons, shields, hangars, medals, f=false,f2=false)
       @nSupplies =  supplies
       @nWeapons = weapons
       @nShields = shields
       @nHangars = hangars
       @nMedals = medals
+      @efficient=f
+      @spaceCity=f2
     end
 
     def to_s

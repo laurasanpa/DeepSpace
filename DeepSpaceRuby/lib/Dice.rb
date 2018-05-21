@@ -9,13 +9,20 @@ module Deepspace
        @NHANGARSPROB=0.25
        @NSHIELDSPROB=0.25
        @NWEAPONSPROB=0.33
+       @EXTRAEFFICIENCYPROB=0.8
        @FIRSTSHOTPROB=0.50
        
        @generator=Random.new()
 
     end
     
-    
+    def extraEfficiency
+      if @generator.rand(1.0)<= @EXTRAEFFICIENCYPROB 
+            return true
+        else
+            return false
+         end
+    end
    
     def initWithNHangars
         if @generator.rand(1.0)<= @NHANGARSPROB 

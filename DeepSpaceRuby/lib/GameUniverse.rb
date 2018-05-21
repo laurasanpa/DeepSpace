@@ -11,12 +11,13 @@ module Deepspace
   require_relative 'CombatResult'
   require_relative 'GameUniverseToUI'
   require_relative 'Hangar'
+  require_relative 'SpaceCity'
   
   class GameUniverse
     
     @@WIN=10
     
-    
+    attr_reader:haveSpaceCity
     
     def initialize()
         @currentEnemy=nil
@@ -26,7 +27,7 @@ module Deepspace
         @spaceStations=Array.new
         @currentStationIndex=0
         @turns=0
-        
+        @haveSpaceCity=false
     end
     
     def state
@@ -34,8 +35,10 @@ module Deepspace
     end
     
     def combat
-      state = @gameState.state
       
+      puts("llego a combat")
+      state = @gameState.state
+      puts(state)
       if ((state == GameState::BEFORECOMBAT)||(state==GameState::INIT))
         return combatGO(@currentStation,@currentEnemy)
       else 
@@ -75,12 +78,27 @@ module Deepspace
         end
       else
         aLoot=enemy.loot
-        station.setLoot(aLoot)
+        a = station.setLoot(aLoot)
+        if a == Transformation::NOTRANSFORM
         combatResult=CombatResult::STATIONWINS
+        elsif a == Transformation::GETEFFICIENT
+        combatResult=CombatResult::STATIONWINSANDCONVERTS
+        makeStationEfficient
+        else
+          combatResult=CombatResult::STATIONWINSANDCONVERTS
+          createSpaceCity
       end
-      
+      end
       @gameState.next(@turns, @spaceStations.size)
       return combatResult
+    
+    end
+    
+    def createSpaceCity
+      if @haveSpaceCity==false
+        @currentStation = SpaceCity.new(@currentStation, @spaceStations)
+        @haveSpaceCity=true
+      end
     end
     
     def discardHangar
@@ -104,6 +122,15 @@ module Deepspace
     def discardShieldBoosterInHangar(i)
         if @gameState.state==GameState::INIT || @gameState.state==GameState::AFTERCOMBAT
         @currentStation.discardShieldBoosterInHangar(i)
+      end
+    end
+    
+    def makeStationEfficient 
+      change = @dice.extraEfficiency
+      if change
+        @currentStation = BetaPowerEfficientSpaceStation.new(@currentStation)
+      else
+        @currentStation = PowerEfficientSpaceStation.new(@currentStation)
       end
     end
     
@@ -159,11 +186,13 @@ module Deepspace
     
     def nextTurn
       state=@gameState.state
-      
+      puts ("\nNext turn " )
+      puts state
       if state==GameState::AFTERCOMBAT
         stationState =@currentStation.validState
         
         if stationState
+          puts "\nEstado Vlido"
           @currentStationIndex=(@currentStationIndex+1)%(@spaceStations.size)
           @turns=@turns+1
           

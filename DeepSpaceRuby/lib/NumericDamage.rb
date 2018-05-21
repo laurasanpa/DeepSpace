@@ -6,7 +6,7 @@ module Deepspace
 class NumericDamage < Damage
   
   attr_reader:nWeapons
-
+public
   def initialize (nweapons, nshields)
     super(nshields)
     @nWeapons = nweapons

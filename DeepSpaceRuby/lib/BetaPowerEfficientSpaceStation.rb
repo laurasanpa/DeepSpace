@@ -3,9 +3,23 @@
 # and open the template in the editor.
 
 module Deepspace
-  class BetaPowerEfficientSpaceStation < SpaceStation
-    def initialize
-      
+  require_relative 'BetaPowerEfficientSpaceStationToUI'
+  require_relative 'PowerEfficientSpaceStation'
+  
+  class BetaPowerEfficientSpaceStation < PowerEfficientSpaceStation
+    
+    @@EXTRAEFFICIENCY=1.20
+    
+    def initialize(ss)
+      super(ss)
+    end
+    
+    def getUIversion
+      BetaPowerEfficientSpaceStationToUI.new(self)
+    end
+    
+    def fire
+      super*@@EXTRAEFFICIENCY
     end
   end
 end

@@ -10,6 +10,7 @@ module Deepspace
   require_relative 'ShotResult'
   require_relative 'CardDealer'
   require_relative 'SpaceStationToUI'
+  require_relative 'Transformation'
  
   class SpaceStation
     @@MAXFUEL=100
@@ -233,9 +234,18 @@ module Deepspace
       
       medals=loot.nMedals
       @nMedals+=medals
+      
+      if loot.efficient
+        return Transformation::GETEFFICIENT
+      elsif loot.spaceCity
+        return Transformation::SPACECITY
+      else
+        return Transformation::NOTRANSFORM
+      end
     end
     
     def validState
+
       return (@pendingDamage==nil || @pendingDamage.hasNoEffect)
     end
     
@@ -259,6 +269,7 @@ module Deepspace
 
     def cleanPendingDamage
       if @pendingDamage.hasNoEffect
+        puts "\nNo tiene Efecto"
         @pendingDamage=nil
       end
     end
