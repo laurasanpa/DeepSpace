@@ -30,6 +30,10 @@ public class GameUniverse {
         turns=0;
     }
     
+    boolean gethaveSpaceCity(){
+        return haveSpaceCity;
+    }
+    
     
     public void discardHangar(){
         if (gameState.getState()==GameState.INIT || gameState.getState()==GameState.AFTERCOMBAT)

@@ -78,8 +78,7 @@ public class TextUI {
                 }
                 break;
               case STATIONWINSANDCONVERTS :
-                  String name = gameUI.getCurrentStation().getName();
-                  pause ("\n Has GANADO el combate. Disfruta de tu botín. Ahora eres " + name);
+                  pause ("\n Has GANADO el combate. Disfruta de tu botín. Has cambiado.");
           }
           do {   // Until a valid next turn
               System.out.println (showStation (gameUI.getCurrentStation()));

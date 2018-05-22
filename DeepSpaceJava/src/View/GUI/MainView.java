@@ -27,6 +27,8 @@ public class MainView extends javax.swing.JFrame implements View{
                 controller.finish(0);
             }
         });
+        
+        setLocationRelativeTo(null);
     }
     
     public ArrayList<String> getNames(){
@@ -37,7 +39,7 @@ public class MainView extends javax.swing.JFrame implements View{
     
     @Override
     public void updateView(){
-        
+        *-
     }
     
     public void setController(Controller c){

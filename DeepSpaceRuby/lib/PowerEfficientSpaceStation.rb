@@ -11,10 +11,9 @@ require_relative 'SpaceStation'
     @@EFFICIENCYFACTOR=1.10  
     
     def initialize(ss)
-      sup=SuppliesPackage.new(ss.ammoPower,ss.fuelUnits, ss.shieldPower)
+    sup=SuppliesPackage.new(ss.ammoPower,ss.fuelUnits, ss.shieldPower)
     super(ss.name,sup)
-    @nmedals=ss.nMedals
-    @pendingDamage=ss.pendingDamage
+    setPendingDamage(ss.pendingDamage)
     receiveHangar(ss.hangar)
     for i in (0...ss.weapons.size)
       @weapons.push(ss.weapons[i])
