@@ -208,5 +208,29 @@ public class GameUniverse {
         return "GameUniverse{" + "currentStationIndex=" + currentStationIndex + ", turns=" + turns + ", dice=" + dice + ", currentStation=" + currentStation + ", spaceStations=" + spaceStations + ", currentEnemy=" + currentEnemy + ", gameState=" + gameState + '}';
     }
     
+    //Pruebas
     
+    public ShieldBooster dameUnEscudoPrueba(){
+        return new ShieldBooster("Lola", (float) 2.0, 3);
+    }
+    
+    public Weapon dameUnArmaPrueba(){
+        return new Weapon("Lolo",WeaponType.LASER, 1);
+    }
+    
+    public Loot dameUnBotinPrueba(){
+        return new Loot(1,2,3,4,5);
+    }
+    
+    public NumericDamage dameUnNumericoPrueba(){
+        return new NumericDamage(2,3);
+    }
+    
+    public Hangar DameUnHangarPrueba(){
+        Hangar h = new Hangar(3);
+        h.addWeapon(dameUnArmaPrueba());
+        h.addWeapon(dameUnArmaPrueba());
+        h.addWeapon(dameUnArmaPrueba());
+        return h;
+    }
 }

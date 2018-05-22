@@ -7,6 +7,12 @@ package View.GUI;
 import View.View;
 import controller.Controller;
 import java.util.ArrayList;
+//prueba
+import deepspace.ShieldToUI;
+import deepspace.WeaponToUI;
+import deepspace.LootToUI;
+import deepspace.NumericDamageToUI;
+import deepspace.HangarToUI;
 
 /**
  *
@@ -39,7 +45,35 @@ public class MainView extends javax.swing.JFrame implements View{
     
     @Override
     public void updateView(){
-        *-
+//        ShieldToUI escudoprueba = controller.dameUnEscudoPrueba();
+//        ShieldBoosterView vistaescudoprueba = new ShieldBoosterView();
+//        vistaescudoprueba.setShieldBooster(escudoprueba);
+//        panelprueba.add(vistaescudoprueba);
+
+        NumericDamageToUI np =controller.dameUnNumericoPrueba();
+        NumericDamageView nd = new NumericDamageView();
+        nd.setNumericDamage(np);
+        panelprueba.add(nd);
+        
+//        WeaponToUI ap = controller.dameUnArmaPrueba();
+//        WeaponView vap = new WeaponView();
+//        vap.setWeapon(ap);
+//        panelprueba2.add(vap);
+
+        HangarToUI hp = controller.dameUnHangarPrueba();
+        HangarView hview = new HangarView();
+        hview.setHangar(hp);
+        panelprueba2.add(hview);
+        
+        LootToUI lp = controller.dameUnBotinPrueba();
+        LootView vlp = new LootView();
+        vlp.setLoot(lp);
+        panelprueba3.add(vlp);
+        
+        repaint();
+        revalidate();
+        
+        
     }
     
     public void setController(Controller c){
@@ -60,17 +94,44 @@ public class MainView extends javax.swing.JFrame implements View{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelprueba = new javax.swing.JPanel();
+        panelprueba2 = new javax.swing.JPanel();
+        panelprueba3 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelprueba.setLayout(new java.awt.BorderLayout());
+
+        panelprueba2.setLayout(new java.awt.BorderLayout());
+
+        panelprueba3.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(panelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelprueba2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelprueba3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(panelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(panelprueba2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addComponent(panelprueba3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
 
         pack();
@@ -79,5 +140,8 @@ public class MainView extends javax.swing.JFrame implements View{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel panelprueba;
+    private javax.swing.JPanel panelprueba2;
+    private javax.swing.JPanel panelprueba3;
     // End of variables declaration//GEN-END:variables
 }

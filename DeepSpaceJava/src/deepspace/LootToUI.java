@@ -19,7 +19,7 @@ public class LootToUI {
     private final boolean getEfficient;
     private final boolean spaceCity;    
     
-    LootToUI(Loot l) {
+    public LootToUI(Loot l) {
         nSupplies=l.getNSupplies();
         nWeapons=l.getNWeapons();
         nShields=l.getNShields();

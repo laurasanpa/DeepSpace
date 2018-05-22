@@ -7,6 +7,12 @@ package controller;
 
 import View.View;
 import deepspace.GameUniverse;
+//prueba
+import deepspace.ShieldToUI;
+import deepspace.WeaponToUI;
+import deepspace.LootToUI;
+import deepspace.NumericDamageToUI;
+import deepspace.HangarToUI;
 
 /**
  *
@@ -35,4 +41,26 @@ private View view;
     public void finish(int i){
         System.exit(i);
     }
+    
+    //Pruebas
+    
+    public ShieldToUI dameUnEscudoPrueba(){
+        return new ShieldToUI(model.dameUnEscudoPrueba());
+    }
+    
+     public WeaponToUI dameUnArmaPrueba(){
+        return new WeaponToUI(model.dameUnArmaPrueba());
+    }
+     
+     public LootToUI dameUnBotinPrueba(){
+        return new LootToUI(model.dameUnBotinPrueba());
+    }
+     
+     public NumericDamageToUI dameUnNumericoPrueba(){
+         return new NumericDamageToUI(model.dameUnNumericoPrueba());
+     }
+    
+     public HangarToUI dameUnHangarPrueba(){
+         return new HangarToUI(model.DameUnHangarPrueba());
+     }
 }

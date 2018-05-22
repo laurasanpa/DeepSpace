@@ -12,7 +12,7 @@ package deepspace;
 public class NumericDamageToUI extends DamageToUI{
     private int nWeapons;
 
-    NumericDamageToUI(NumericDamage d) {
+    public NumericDamageToUI(NumericDamage d) {
         super(d);
         nWeapons=d.getNWeapons();
     }

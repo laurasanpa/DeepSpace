@@ -16,7 +16,7 @@ public class HangarToUI {
     private ArrayList<WeaponToUI> weapons;
     private ArrayList<ShieldToUI> shieldBoosters;    
     
-    HangarToUI(Hangar h) {
+    public HangarToUI(Hangar h) {
         weapons=new ArrayList();
         shieldBoosters=new ArrayList(); 
         

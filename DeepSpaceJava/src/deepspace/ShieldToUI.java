@@ -12,8 +12,9 @@ package deepspace;
 public class ShieldToUI {
     private float boost;
     private int uses;
-
-    ShieldToUI (ShieldBooster s) {
+    
+    //Cambiar a paquete
+    public ShieldToUI (ShieldBooster s) {
         boost=s.getBoost();
         uses=s.getUses();
     }    
