@@ -226,11 +226,50 @@ public class GameUniverse {
         return new NumericDamage(2,3);
     }
     
-    public Hangar DameUnHangarPrueba(){
+    public Hangar dameUnHangarPrueba(){
         Hangar h = new Hangar(3);
         h.addWeapon(dameUnArmaPrueba());
         h.addWeapon(dameUnArmaPrueba());
         h.addWeapon(dameUnArmaPrueba());
         return h;
     }
+    
+    
+    public SpecificDamage dameUnEspecificoPrueba(){
+        ArrayList<WeaponType> aux = new ArrayList();
+        aux.add(WeaponType.LASER);
+        aux.add(WeaponType.PLASMA);
+        aux.add(WeaponType.LASER);
+        
+        return new SpecificDamage(aux,2);
+    }
+    
+    public EnemyStarShip dameUnEnemigoPrueba(){
+        return new EnemyStarShip("LauritaSanpa",(float) 4.0,(float)3.0,dameUnBotinPrueba(),dameUnEspecificoPrueba());
+    } 
+    
+    public SpaceStation dameUnaEstacionPrueba(){
+        
+        SuppliesPackage paq = new SuppliesPackage(2,1,1);
+        SpaceStation sp = new SpaceStation("Laurita", paq);
+        Hangar h = new Hangar(3);
+        h.addWeapon(dameUnArmaPrueba());
+        h.addWeapon(dameUnArmaPrueba());
+        h.addShieldBooster(dameUnEscudoPrueba());
+        sp.receiveHangar(h);
+        sp.mountWeapon(0);
+        sp.mountWeapon(0);
+        sp.mountShieldBooster(0);
+         h.addWeapon(dameUnArmaPrueba());
+         
+        ArrayList<WeaponType> aux = new ArrayList();
+        aux.add(WeaponType.LASER);
+        aux.add(WeaponType.PLASMA);
+        aux.add(WeaponType.LASER);
+        
+        SpecificDamage d =new SpecificDamage(aux,2);
+        sp.setPendingDamage(d);
+        return sp;
+        
+    } 
 }

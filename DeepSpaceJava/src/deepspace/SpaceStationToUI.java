@@ -24,7 +24,7 @@ public class SpaceStationToUI {
     private HangarToUI hangar;   
     private DamageToUI pendingDamage;
     
-    SpaceStationToUI(SpaceStation station) {
+    public SpaceStationToUI(SpaceStation station) {
         weapons=new ArrayList();
         shieldBoosters=new ArrayList();         
         

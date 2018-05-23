@@ -13,6 +13,9 @@ import deepspace.WeaponToUI;
 import deepspace.LootToUI;
 import deepspace.NumericDamageToUI;
 import deepspace.HangarToUI;
+import deepspace.SpecificDamageToUI;
+import deepspace.EnemyToUI;
+import deepspace.SpaceStationToUI;
 
 /**
  *
@@ -42,6 +45,10 @@ public class MainView extends javax.swing.JFrame implements View{
         return n.getNames();
     }
     
+    /**
+     *
+     */
+    
     
     @Override
     public void updateView(){
@@ -50,29 +57,33 @@ public class MainView extends javax.swing.JFrame implements View{
 //        vistaescudoprueba.setShieldBooster(escudoprueba);
 //        panelprueba.add(vistaescudoprueba);
 
-        NumericDamageToUI np =controller.dameUnNumericoPrueba();
-        NumericDamageView nd = new NumericDamageView();
-        nd.setNumericDamage(np);
-        panelprueba.add(nd);
+        EnemyToUI e =controller.dameUnEnemigoPrueba();
+        EnemyStarShipView ev = new EnemyStarShipView();
+        ev.setEnemy(e);
+        enemyinfo.add(ev);
+        
+        SpaceStationToUI np =controller.dameUnaEstacionPrueba();
+        SpaceStationView nd = new SpaceStationView();
+        nd.setSpaceStation(np);
+        spacestationinfo.add(nd);
         
 //        WeaponToUI ap = controller.dameUnArmaPrueba();
 //        WeaponView vap = new WeaponView();
 //        vap.setWeapon(ap);
 //        panelprueba2.add(vap);
 
-        HangarToUI hp = controller.dameUnHangarPrueba();
-        HangarView hview = new HangarView();
-        hview.setHangar(hp);
-        panelprueba2.add(hview);
+//        HangarToUI hp = controller.dameUnHangarPrueba();
+//        HangarView hview = new HangarView();
+//        hview.setHangar(hp);
+//        panelprueba2.add(hview);
         
-        LootToUI lp = controller.dameUnBotinPrueba();
-        LootView vlp = new LootView();
-        vlp.setLoot(lp);
-        panelprueba3.add(vlp);
+//        LootToUI lp = controller.dameUnBotinPrueba();
+//        LootView vlp = new LootView();
+//        vlp.setLoot(lp);
+//        panelprueba3.add(vlp);
         
         repaint();
-        revalidate();
-        
+        revalidate(); 
         
     }
     
@@ -94,54 +105,77 @@ public class MainView extends javax.swing.JFrame implements View{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelprueba = new javax.swing.JPanel();
-        panelprueba2 = new javax.swing.JPanel();
-        panelprueba3 = new javax.swing.JPanel();
+        spacestationinfo = new javax.swing.JPanel();
+        enemyinfo = new javax.swing.JPanel();
+        jbCombat = new javax.swing.JButton();
+        jbNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelprueba.setLayout(new java.awt.BorderLayout());
+        jbCombat.setText("¡COMBATIR!");
+        jbCombat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCombatActionPerformed(evt);
+            }
+        });
 
-        panelprueba2.setLayout(new java.awt.BorderLayout());
-
-        panelprueba3.setLayout(new java.awt.BorderLayout());
+        jbNext.setText("Siguiente");
+        jbNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(panelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 444, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelprueba2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelprueba3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spacestationinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enemyinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 142, Short.MAX_VALUE)
+                        .addComponent(jbNext, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbCombat, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(enemyinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spacestationinfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(panelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(panelprueba2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
-                .addComponent(panelprueba3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
+                    .addComponent(jbCombat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbCombatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCombatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCombatActionPerformed
+
+    private void jbNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbNextActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel panelprueba;
-    private javax.swing.JPanel panelprueba2;
-    private javax.swing.JPanel panelprueba3;
+    private javax.swing.JPanel enemyinfo;
+    private javax.swing.JButton jbCombat;
+    private javax.swing.JButton jbNext;
+    private javax.swing.JPanel spacestationinfo;
     // End of variables declaration//GEN-END:variables
 }

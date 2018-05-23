@@ -4,25 +4,24 @@
  * and open the template in the editor.
  */
 package View.GUI;
-import deepspace.NumericDamageToUI;
+import deepspace.DamageToUI;
 
 /**
  *
  * @author laura
  */
-public class NumericDamageView extends javax.swing.JPanel {
+public class DamageView extends javax.swing.JPanel {
 
     /**
-     * Creates new form NumericDamageView
+     * Creates new form DamageView
      */
-    public NumericDamageView() {
+    public DamageView() {
         initComponents();
     }
     
-    public void setNumericDamage(NumericDamageToUI nd){
-        nShields.setText(Integer.toString(nd.getNShields()));
-        nWeapons.setText(Integer.toString(nd.getNWeapons()));
-        
+    public void setDamage(DamageToUI d){
+        weaponsText.setText(d.getWeaponInfo());
+        shieldLabel.setText(Integer.toString(d.getNShields()));
     }
 
     /**
@@ -36,44 +35,45 @@ public class NumericDamageView extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nWeapons = new javax.swing.JLabel();
-        nShields = new javax.swing.JLabel();
+        shieldLabel = new javax.swing.JLabel();
+        weaponsText = new javax.swing.JLabel();
+
+        setBorder(null);
 
         jLabel1.setText("Armas:");
 
         jLabel2.setText("Escudos:");
 
-        nWeapons.setText("jLabel3");
+        shieldLabel.setText("jLabel3");
 
-        nShields.setText("jLabel4");
+        weaponsText.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nWeapons)
-                    .addComponent(nShields))
-                .addGap(60, 60, 60))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(weaponsText, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shieldLabel)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nWeapons)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(weaponsText))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nShields))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(shieldLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -81,7 +81,7 @@ public class NumericDamageView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel nShields;
-    private javax.swing.JLabel nWeapons;
+    private javax.swing.JLabel shieldLabel;
+    private javax.swing.JLabel weaponsText;
     // End of variables declaration//GEN-END:variables
 }

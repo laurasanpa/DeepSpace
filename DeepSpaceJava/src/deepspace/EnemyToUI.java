@@ -17,7 +17,7 @@ public class EnemyToUI {
     private LootToUI loot;
     private DamageToUI damage;   
     
-    EnemyToUI(EnemyStarShip enemy) {
+    public EnemyToUI(EnemyStarShip enemy) {
         name=enemy.getName();
         ammoPower=enemy.getAmmoPower();
         shieldPower=enemy.getShieldPower();

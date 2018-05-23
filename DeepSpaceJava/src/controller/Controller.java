@@ -13,6 +13,9 @@ import deepspace.WeaponToUI;
 import deepspace.LootToUI;
 import deepspace.NumericDamageToUI;
 import deepspace.HangarToUI;
+import deepspace.SpecificDamageToUI;
+import deepspace.EnemyToUI;
+import deepspace.SpaceStationToUI;
 
 /**
  *
@@ -61,6 +64,18 @@ private View view;
      }
     
      public HangarToUI dameUnHangarPrueba(){
-         return new HangarToUI(model.DameUnHangarPrueba());
+         return new HangarToUI(model.dameUnHangarPrueba());
+     }
+     
+     public SpecificDamageToUI dameUnEspecificoPrueba(){
+         return new SpecificDamageToUI(model.dameUnEspecificoPrueba());
+     }
+     
+     public EnemyToUI dameUnEnemigoPrueba(){
+         return new EnemyToUI(model.dameUnEnemigoPrueba());
+     }
+     
+    public SpaceStationToUI dameUnaEstacionPrueba(){
+         return new SpaceStationToUI(model.dameUnaEstacionPrueba());
      }
 }
