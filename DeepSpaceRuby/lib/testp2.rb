@@ -104,7 +104,7 @@ module Testp2
    
     puts "\n\nProbamos la clase SpaceStation"
     p1 = Deepspace::SuppliesPackage.new(1.1,2.2,3.3)
-    station1 = Deepspace::SpaceStation.new("Alianza rebelde", p1)
+    station1 = Deepspace::SpaceStation.new("Alianza rebelde",1.1,2.2,3.3)
     pp station1
     
     station1.receiveWeapon(w1)
@@ -153,7 +153,7 @@ module Testp2
       puts "Valid state: #{station1.validState}"
     
 
-    a = PowerEfficientSpaceStation.new(station1)
+#    a = PowerEfficientSpaceStation.new(station1,)
     
     end
   end

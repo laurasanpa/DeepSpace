@@ -26,16 +26,16 @@ module Deepspace
     attr_reader:pendingDamage
     attr_reader:nMedals
     
-    def initialize(n,supplies)
-      @ammoPower=supplies.ammoPower
-      @fuelUnits=supplies.fuelUnits
+    def initialize(n,ammo=0, fuel=0, shieldpow=0, weapons=[], booster=[], hangar=nil, medals=0, damage=nil)
+      @ammoPower=ammo
+      @fuelUnits=fuel
       @name=n
-      @nMedals=0
-      @shieldPower=supplies.shieldPower
-      @weapons=Array.new
-      @shieldBoosters=Array.new
-      @hangar=Hangar.new(0)
-      @pendingDamage=nil
+      @nMedals=medals
+      @shieldPower=shieldpow
+      @weapons=weapons
+      @shieldBoosters=booster
+      @hangar=hangar
+      @pendingDamage=damage
     end
     
     def NMedals
@@ -137,7 +137,7 @@ module Deepspace
       
       for i in (0...size)
         w=@weapons[i]
-        factor*=w.useIt
+        factor=w.useIt*factor
       end
       @ammoPower*factor
     end

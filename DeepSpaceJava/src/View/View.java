@@ -15,6 +15,11 @@ public interface View {
     public void setController(Controller c);
     public void updateView();
     public void showView();
+    public void acceptLost();
+    public void acceptWin();
+    public void acceptEscape();
+    public void acceptConvert();
+    public void acceptFinalWin();
     
     public ArrayList<String> getNames();
 }

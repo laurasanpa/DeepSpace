@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import deepspace.HangarToUI;
 import deepspace.ShieldToUI;
 import deepspace.WeaponToUI;
+import java.awt.Component;
 
 /**
  *
@@ -45,6 +46,30 @@ public class HangarView extends javax.swing.JPanel {
             
         repaint();
         revalidate();             
+    }
+    
+    ArrayList<Integer> getSelectedShields (){
+        ArrayList<Integer> selectedShields = new ArrayList();
+        int i = 0;
+        for (Component c : shieldsPanel.getComponents()){
+            if(((WeaponView) c).isSelected()){
+                selectedShields.add(i);}
+            i++;
+            
+        }
+        return selectedShields;
+    }
+    
+    ArrayList<Integer> getSelectedWeapons (){
+        ArrayList<Integer> selectedWeapons = new ArrayList();
+        int i = 0;
+        for (Component c : weaponsPanel.getComponents()){
+            if(((WeaponView) c).isSelected()){
+                selectedWeapons.add(i);}
+            i++;
+            
+        }
+        return selectedWeapons;
     }
 
     /**

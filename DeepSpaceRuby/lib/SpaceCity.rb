@@ -11,13 +11,11 @@ class SpaceCity < SpaceStation
   
   #ss es tipo SpaceStation, rest array de spaceStation
   def initialize(ss,rest)
-    sup=SuppliesPackage.new(ss.ammoPower,ss.fuelUnits, ss.shieldPower)
-    super(ss.name,sup)
+    super(ss.name,ss.ammoPower, ss.fuelUnits, ss.shieldPower, ss.weapons, ss.shieldBoosters,ss.hangar,ss.nMedals, ss.pendingDamage)
     @collaborators = Array.new
     for i in (0...rest.size)
       @collaborators.push(rest[i])
-    end
-    
+    end    
     @base=ss
   end
   

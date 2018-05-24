@@ -11,16 +11,7 @@ require_relative 'SpaceStation'
     @@EFFICIENCYFACTOR=1.10  
     
     def initialize(ss)
-    sup=SuppliesPackage.new(ss.ammoPower,ss.fuelUnits, ss.shieldPower)
-    super(ss.name,sup)
-    setPendingDamage(ss.pendingDamage)
-    receiveHangar(ss.hangar)
-    for i in (0...ss.weapons.size)
-      @weapons.push(ss.weapons[i])
-    end
-    for j in (0...ss.shieldBoosters.size)
-      @shieldBoosters.push(ss.shieldBoosters[i])
-    end
+    super(ss.name,ss.ammoPower, ss.fuelUnits, ss.shieldPower, ss.weapons, ss.shieldBoosters,ss.hangar,ss.nMedals, ss.pendingDamage)
     end
     
     def getUIversion

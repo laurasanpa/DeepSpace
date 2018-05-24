@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author samuel y Laura
  */
 public class GameUniverse {
-    private static int WIN =10;
+    private static int WIN =1;
     private int currentStationIndex;
     private int turns;
     private Dice dice = new Dice();
@@ -112,9 +112,11 @@ public class GameUniverse {
         station.setLoot(aLoot);
         if(aLoot.getEfficient()){
             makeStationEfficient();
+            combatResult= CombatResult.STATIONWINSANDCONVERTS;
         } else if (aLoot.spaceCity()){
             createSpaceCity();
-        }
+            combatResult= CombatResult.STATIONWINSANDCONVERTS;
+        } else
         combatResult= CombatResult.STATIONWINS;
     } 
         gameState.next(turns,spaceStations.size());
@@ -129,6 +131,8 @@ public class GameUniverse {
         }else
             return CombatResult.NOCOMBAT;
     }
+    
+    
     
     private void createSpaceCity(){
         if(haveSpaceCity==false){
@@ -146,7 +150,7 @@ public class GameUniverse {
     }
     
     public boolean haveAWinner(){
-        return (currentStation.getNMedals()==10);       
+        return (currentStation.getNMedals()==WIN);       
     }
     
     public void init(ArrayList<String> names){
@@ -202,6 +206,12 @@ public class GameUniverse {
         }
         return false;
     }
+    
+    //DUDA
+    
+    public boolean canIGoOn(){
+        return(getState()==GameState.AFTERCOMBAT && currentStation.validState());
+    }
 
     @Override
     public String toString() {
@@ -210,66 +220,66 @@ public class GameUniverse {
     
     //Pruebas
     
-    public ShieldBooster dameUnEscudoPrueba(){
-        return new ShieldBooster("Lola", (float) 2.0, 3);
-    }
-    
-    public Weapon dameUnArmaPrueba(){
-        return new Weapon("Lolo",WeaponType.LASER, 1);
-    }
-    
-    public Loot dameUnBotinPrueba(){
-        return new Loot(1,2,3,4,5);
-    }
-    
-    public NumericDamage dameUnNumericoPrueba(){
-        return new NumericDamage(2,3);
-    }
-    
-    public Hangar dameUnHangarPrueba(){
-        Hangar h = new Hangar(3);
-        h.addWeapon(dameUnArmaPrueba());
-        h.addWeapon(dameUnArmaPrueba());
-        h.addWeapon(dameUnArmaPrueba());
-        return h;
-    }
-    
-    
-    public SpecificDamage dameUnEspecificoPrueba(){
-        ArrayList<WeaponType> aux = new ArrayList();
-        aux.add(WeaponType.LASER);
-        aux.add(WeaponType.PLASMA);
-        aux.add(WeaponType.LASER);
-        
-        return new SpecificDamage(aux,2);
-    }
-    
-    public EnemyStarShip dameUnEnemigoPrueba(){
-        return new EnemyStarShip("LauritaSanpa",(float) 4.0,(float)3.0,dameUnBotinPrueba(),dameUnEspecificoPrueba());
-    } 
-    
-    public SpaceStation dameUnaEstacionPrueba(){
-        
-        SuppliesPackage paq = new SuppliesPackage(2,1,1);
-        SpaceStation sp = new SpaceStation("Laurita", paq);
-        Hangar h = new Hangar(3);
-        h.addWeapon(dameUnArmaPrueba());
-        h.addWeapon(dameUnArmaPrueba());
-        h.addShieldBooster(dameUnEscudoPrueba());
-        sp.receiveHangar(h);
-        sp.mountWeapon(0);
-        sp.mountWeapon(0);
-        sp.mountShieldBooster(0);
-         h.addWeapon(dameUnArmaPrueba());
-         
-        ArrayList<WeaponType> aux = new ArrayList();
-        aux.add(WeaponType.LASER);
-        aux.add(WeaponType.PLASMA);
-        aux.add(WeaponType.LASER);
-        
-        SpecificDamage d =new SpecificDamage(aux,2);
-        sp.setPendingDamage(d);
-        return sp;
-        
-    } 
+//    public ShieldBooster dameUnEscudoPrueba(){
+//        return new ShieldBooster("Lola", (float) 2.0, 3);
+//    }
+//    
+//    public Weapon dameUnArmaPrueba(){
+//        return new Weapon("Lolo",WeaponType.LASER, 1);
+//    }
+//    
+//    public Loot dameUnBotinPrueba(){
+//        return new Loot(1,2,3,4,5);
+//    }
+//    
+//    public NumericDamage dameUnNumericoPrueba(){
+//        return new NumericDamage(2,3);
+//    }
+//    
+//    public Hangar dameUnHangarPrueba(){
+//        Hangar h = new Hangar(3);
+//        h.addWeapon(dameUnArmaPrueba());
+//        h.addWeapon(dameUnArmaPrueba());
+//        h.addWeapon(dameUnArmaPrueba());
+//        return h;
+//    }
+//    
+//    
+//    public SpecificDamage dameUnEspecificoPrueba(){
+//        ArrayList<WeaponType> aux = new ArrayList();
+//        aux.add(WeaponType.LASER);
+//        aux.add(WeaponType.PLASMA);
+//        aux.add(WeaponType.LASER);
+//        
+//        return new SpecificDamage(aux,2);
+//    }
+//    
+//    public EnemyStarShip dameUnEnemigoPrueba(){
+//        return new EnemyStarShip("LauritaSanpa",(float) 4.0,(float)3.0,dameUnBotinPrueba(),dameUnEspecificoPrueba());
+//    } 
+//    
+//    public SpaceStation dameUnaEstacionPrueba(){
+//        
+//        SuppliesPackage paq = new SuppliesPackage(2,1,1);
+//        SpaceStation sp = new SpaceStation("Laurita", paq);
+//        Hangar h = new Hangar(3);
+//        h.addWeapon(dameUnArmaPrueba());
+//        h.addWeapon(dameUnArmaPrueba());
+//        h.addShieldBooster(dameUnEscudoPrueba());
+//        sp.receiveHangar(h);
+//        sp.mountWeapon(0);
+//        sp.mountWeapon(0);
+//        sp.mountShieldBooster(0);
+//         h.addWeapon(dameUnArmaPrueba());
+//         
+//        ArrayList<WeaponType> aux = new ArrayList();
+//        aux.add(WeaponType.LASER);
+//        aux.add(WeaponType.PLASMA);
+//        aux.add(WeaponType.LASER);
+//        
+//        SpecificDamage d =new SpecificDamage(aux,2);
+//        sp.setPendingDamage(d);
+//        return sp;
+//        
+//    } 
 }

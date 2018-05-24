@@ -35,12 +35,7 @@ public class WeaponView extends javax.swing.JPanel {
         return selected;
     }
     
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
-        // TODO add your handling code here:
-        selected = !selected;
-        setOpaque (selected);
-        repaint();
-    }                            
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,9 +54,15 @@ public class WeaponView extends javax.swing.JPanel {
         uses = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Tipo:");
 
+        jLabel2.setBackground(new java.awt.Color(238, 238, 19));
         jLabel2.setText("Potencia:");
 
         jLabel3.setText("Usos:");
@@ -112,6 +113,13 @@ public class WeaponView extends javax.swing.JPanel {
                     .addComponent(uses)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        selected = !selected;
+        setOpaque (selected);
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

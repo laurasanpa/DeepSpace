@@ -13,7 +13,7 @@ public class GameUniverseToUI {
     SpaceStationToUI currentStation;
     EnemyToUI currentEnemy;
     
-    GameUniverseToUI(SpaceStation station,EnemyStarShip enemy) {
+    public GameUniverseToUI(SpaceStation station,EnemyStarShip enemy) {
         currentStation = station.getUIversion();
         currentEnemy= enemy.getUIversion();
     }

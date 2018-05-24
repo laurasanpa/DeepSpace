@@ -78,7 +78,13 @@ public class TextUI {
                 }
                 break;
               case STATIONWINSANDCONVERTS :
-                  pause ("\n Has GANADO el combate. Disfruta de tu botín. Has cambiado.");
+                String cout = "";
+                if( gameUI.getCurrentEnemy().getLoot().isGetEfficient() )
+                    cout = " Has GANADO  y ¡Tu eficiencia ha mejorado! ";
+                if( gameUI.getCurrentEnemy().getLoot().isSpaceCity() )
+                    cout = " Has ganado el combate y ¡Has creado una ciudad espacial! ";
+                pause (cout);
+break;
           }
           do {   // Until a valid next turn
               System.out.println (showStation (gameUI.getCurrentStation()));

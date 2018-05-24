@@ -168,7 +168,7 @@ module Deepspace
         
         for i in (1..names.length)
           supplies=dealer.nextSuppliesPackage
-          station=SpaceStation.new(names[i-1],supplies)
+          station=SpaceStation.new(names[i-1],supplies.ammoPower, supplies.fuelUnits, supplies.shieldPower)
           nh=@dice.initWithNHangars
           nw=@dice.initWithNWeapons
           ns=@dice.initWithNShields

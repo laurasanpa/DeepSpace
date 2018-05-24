@@ -62,6 +62,11 @@ public class ShieldBoosterView extends javax.swing.JPanel {
         jLabel3.setText("Usos:");
 
         uses.setText("jLabel4");
+        uses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,6 +96,13 @@ public class ShieldBoosterView extends javax.swing.JPanel {
                 .addGap(0, 8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usesMouseClicked
+        // TODO add your handling code here:
+        selected = !selected;
+        setOpaque (selected);
+        repaint();
+    }//GEN-LAST:event_usesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
