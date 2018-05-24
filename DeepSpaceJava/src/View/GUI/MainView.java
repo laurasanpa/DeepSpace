@@ -35,15 +35,13 @@ public class MainView extends javax.swing.JFrame implements View{
      */
     public MainView() {
         initComponents();
-        
-                
-        
+       
         ssView = new SpaceStationView();
         spacestationinfo.add(ssView);
-        
-        
+ 
         essView = new EnemyStarShipView();
         enemyinfo.add(essView);
+        
         setTitle(appName);
         repaint();
         setLocationRelativeTo(null);
@@ -101,7 +99,10 @@ public class MainView extends javax.swing.JFrame implements View{
       
       jbCombat.setEnabled(controller.getState()==GameState.BEFORECOMBAT||controller.getState()==GameState.INIT);
       jbNext.setEnabled(controller.canIGoOn());
-      ssView.updateView();
+      ssView.ocultarDamage();
+      
+//      ssView.updateView();
+//      ssView.updateView();
 //        enemyinfo
 //        ShieldToUI escudoprueba = controller.dameUnEscudoPrueba();
 //        ShieldBoosterView vistaescudoprueba = new ShieldBoosterView();

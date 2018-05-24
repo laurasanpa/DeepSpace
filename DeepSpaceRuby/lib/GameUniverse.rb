@@ -12,6 +12,8 @@ module Deepspace
   require_relative 'GameUniverseToUI'
   require_relative 'Hangar'
   require_relative 'SpaceCity'
+  require_relative 'BetaPowerEfficientSpaceStation'
+  require_relative 'PowerEfficientSpaceStation'
   
   class GameUniverse
     

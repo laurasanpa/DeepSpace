@@ -7,6 +7,7 @@ package deepspace;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author samuel
@@ -46,5 +47,9 @@ public class SpaceCity extends SpaceStation {
     public Transformation setLoot(Loot loot){
            super.setLoot(loot);
            return Transformation.NOTRANSFORM;
+    }
+    
+    public SpaceCityToUI getUIversion(){
+        return new SpaceCityToUI(this);
     }
 }

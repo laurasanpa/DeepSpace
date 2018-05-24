@@ -33,13 +33,15 @@ public class SpaceStationView extends javax.swing.JPanel {
         ArrayList<Integer> selectedShields = new ArrayList();
         int i = 0;
         for (Component c : shieldsPanel.getComponents()){
-            if(((WeaponView) c).isSelected()){
+            if(((ShieldBoosterView) c).isSelected()){
                 selectedShields.add(i);}
             i++;
             
         }
         return selectedShields;
     }
+    
+
     
     ArrayList<Integer> getSelectedWeapons (){
         ArrayList<Integer> selectedWeapons = new ArrayList();
@@ -61,7 +63,9 @@ public class SpaceStationView extends javax.swing.JPanel {
         return((!aux1.isEmpty())||!aux2.isEmpty());
     }
     
-    
+    public void ocultarDamage(){
+        damagePanel.setVisible(MainView.controller.getUIversion().getCurrentStation().getPendingDamage()!=null);
+    }
         
  
     
@@ -108,10 +112,10 @@ public class SpaceStationView extends javax.swing.JPanel {
         revalidate(); 
         
     }
-    public void updateView(){
-        jbDiscard.setEnabled(areElementsSelected());
-        jbMount.setEnabled(areElementsSelected());
-    }
+//    public void updateView(){
+//        jbDiscard.setEnabled(areElementsSelected());
+//        jbMount.setEnabled(areElementsSelected());
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -283,7 +287,7 @@ public class SpaceStationView extends javax.swing.JPanel {
 
     private void jbMountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMountActionPerformed
         // TODO add your handling code here:
-        MainView.controller.mountElements(getSelectedWeapons(), getSelectedShields());
+        MainView.controller.mountElements(hv.getSelectedWeapons(), hv.getSelectedShields());
     }//GEN-LAST:event_jbMountActionPerformed
 
     private void jbDiscardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDiscardActionPerformed

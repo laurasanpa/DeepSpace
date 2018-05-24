@@ -19,6 +19,9 @@ public class BetaPowerEfficientSpaceStation extends PowerEfficientSpaceStation {
     public float fire(){
         return super.fire()*EXTRAEFFICIENCY;
     }
+    public BetaPowerEfficientSpaceStationToUI getUIversion(){
+        return new BetaPowerEfficientSpaceStationToUI(this);
+    }
     
 
 }

@@ -52,8 +52,9 @@ public class HangarView extends javax.swing.JPanel {
         ArrayList<Integer> selectedShields = new ArrayList();
         int i = 0;
         for (Component c : shieldsPanel.getComponents()){
-            if(((WeaponView) c).isSelected()){
-                selectedShields.add(i);}
+            if(((ShieldBoosterView) c).isSelected()){
+                selectedShields.add(i);
+            }
             i++;
             
         }

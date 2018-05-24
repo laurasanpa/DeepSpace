@@ -62,13 +62,9 @@ class TextUI
                 exit(0)
               end
             when DS::CombatResult::STATIONWINSANDCONVERTS
-              if  @gameUI.haveSpaceCity
-              pause("\n\n Has GANADO el combate, disfruta de tu botín. Ahora eres una SpaceCity" )
-              else
-                pause("\n\n Has GANADO el combate, disfruta de tu botín. Ahora eres una Estación Eficiente" )
-                
-                
-          end
+              
+              pause("\n\n Has GANADO el combate, disfruta de tu botín. Ahora eres " + @gameUI.currentStation.name );
+           
           end
           begin    # Until a valid next turn
               puts showStation(@gameUI.currentStation)

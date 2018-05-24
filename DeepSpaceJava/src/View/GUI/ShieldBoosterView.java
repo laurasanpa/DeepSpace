@@ -31,13 +31,6 @@ public class ShieldBoosterView extends javax.swing.JPanel {
         return selected;
     }
     
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
-        // TODO add your handling code here:
-        selected = !selected;
-        setOpaque (selected);
-        repaint();
-    }                                 
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,7 +46,13 @@ public class ShieldBoosterView extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         uses = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(245, 228, 11));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Potencia:");
 
@@ -103,6 +102,13 @@ public class ShieldBoosterView extends javax.swing.JPanel {
         setOpaque (selected);
         repaint();
     }//GEN-LAST:event_usesMouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        selected = !selected;
+        setOpaque (selected);
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

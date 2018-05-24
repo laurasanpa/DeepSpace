@@ -152,12 +152,12 @@ private View view;
     
     public void mountShieldBooster(int option){
         model.mountShieldBooster(option);
-        view.updateView();
+//        view.updateView();
     }
     
     public void mountWeapon(int option){
         model.mountWeapon(option);
-        view.updateView();
+//        view.updateView();
     }
     
     public boolean nextTurn(){
